@@ -1,0 +1,3 @@
+Save Modifier Tool Placeholder
+Features: adjust XP, gold, level, items
+Input format: .sav or .txt
