@@ -1,418 +1,297 @@
+
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>HustleCode X — From Addiction to Digital Empire</title>
-<style>
-  /* Base Reset & Fonts */
-  @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@700&family=Roboto&display=swap');
-
-  * {
-    box-sizing: border-box;
-    margin: 0; padding: 0;
-  }
-
-  body {
-    font-family: 'Roboto', sans-serif;
-    background: #121212;
-    color: #eee;
-    min-height: 100vh;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-  }
-
-  /* Container */
-  .container {
-    max-width: 900px;
-    width: 95%;
-    padding: 20px 15px;
-  }
-
-  /* Header */
-  header {
-    width: 100%;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding-bottom: 15px;
-    border-bottom: 1px solid #333;
-  }
-
-  .logo {
-    font-family: 'Orbitron', sans-serif;
-    font-size: 2rem;
-    color: #00d2ff;
-    letter-spacing: 3px;
-    position: relative;
-    user-select: none;
-  }
-
-  /* Glitch effect on X */
-  .logo span.glitch-x {
-    position: relative;
-    color: #ff6f3c;
-    font-weight: 900;
-    animation: glitch 2s infinite;
-  }
-
-  @keyframes glitch {
-    0% {
-      text-shadow: 2px 0 #ff6f3c, -2px 0 #00d2ff;
+  <title>HustleMod X Dashboard</title>
+  <meta charset="UTF-8">
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', sans-serif;
+      background-color: #0a0a0a;
+      color: #f1f1f1;
     }
-    20% {
-      text-shadow: -2px 2px #ff6f3c, 2px -2px #00d2ff;
+    header {
+      background-color: #111;
+      padding: 20px;
+      text-align: center;
+      border-bottom: 3px solid #00ff00;
     }
-    40% {
-      text-shadow: 2px -2px #ff6f3c, -2px 2px #00d2ff;
+    header h1 {
+      margin: 0;
+      color: #00ff00;
     }
-    60% {
-      text-shadow: -2px 0 #ff6f3c, 2px 0 #00d2ff;
+    nav {
+      background-color: #1b1b1b;
+      display: flex;
+      justify-content: center;
+      gap: 40px;
+      padding: 12px;
+      border-bottom: 1px solid #333;
     }
-    80% {
-      text-shadow: 0 2px #ff6f3c, 0 -2px #00d2ff;
+    nav a {
+      color: #00ff00;
+      text-decoration: none;
+      font-weight: bold;
     }
-    100% {
-      text-shadow: 2px 0 #ff6f3c, -2px 0 #00d2ff;
+    nav a:hover {
+      color: #33ff33;
     }
-  }
-
-  nav button {
-    background: none;
-    border: 2px solid #ff6f3c;
-    color: #ff6f3c;
-    padding: 8px 15px;
-    font-weight: 700;
-    border-radius: 30px;
-    cursor: pointer;
-    transition: background 0.3s, color 0.3s;
-    margin-left: 10px;
-    font-family: 'Orbitron', sans-serif;
-  }
-
-  nav button:hover {
-    background: #ff6f3c;
-    color: #121212;
-  }
-
-  /* Hero Section */
-  .hero {
-    margin: 30px 0 50px;
-    text-align: center;
-  }
-
-  .hero h1 {
-    font-family: 'Orbitron', sans-serif;
-    font-size: 2.8rem;
-    color: #00d2ff;
-    margin-bottom: 15px;
-    text-shadow:
-      0 0 6px #00d2ff,
-      0 0 12px #ff6f3c,
-      0 0 18px #00d2ff;
-  }
-
-  .hero p {
-    font-size: 1.2rem;
-    color: #ddd;
-    max-width: 700px;
-    margin: 0 auto 30px;
-    line-height: 1.5;
-    filter: drop-shadow(0 0 2px #ff6f3c);
-  }
-
-  .btn-group {
-    display: flex;
-    justify-content: center;
-    gap: 15px;
-  }
-
-  .btn-primary, .btn-secondary {
-    font-family: 'Orbitron', sans-serif;
-    font-weight: 700;
-    border-radius: 30px;
-    padding: 15px 30px;
-    border: none;
-    cursor: pointer;
-    box-shadow: 0 0 8px #ff6f3c;
-    transition: all 0.3s ease;
-  }
-
-  .btn-primary {
-    background: #ff6f3c;
-    color: #121212;
-  }
-
-  .btn-primary:hover {
-    background: #ff5722;
-    box-shadow: 0 0 12px #ff5722;
-  }
-
-  .btn-secondary {
-    background: transparent;
-    color: #00d2ff;
-    border: 2px solid #00d2ff;
-    box-shadow: 0 0 8px #00d2ff;
-  }
-
-  .btn-secondary:hover {
-    background: #00d2ff;
-    color: #121212;
-    box-shadow: 0 0 14px #00d2ff;
-  }
-
-  /* Video Embed Section */
-  .video-section {
-    margin-bottom: 50px;
-    box-shadow:
-      0 0 15px #ff6f3c,
-      0 0 30px #00d2ff inset;
-    border-radius: 12px;
-    overflow: hidden;
-  }
-
-  iframe {
-    width: 100%;
-    height: 320px;
-    border: none;
-    display: block;
-  }
-
-  /* About Snippet */
-  .about-snippet {
-    background: #1c1c1c;
-    padding: 20px;
-    border-radius: 10px;
-    margin-bottom: 50px;
-    box-shadow: 0 0 15px #00d2ff;
-    line-height: 1.5;
-    color: #ccc;
-  }
-
-  .about-snippet p {
-    margin-bottom: 15px;
-  }
-
-  .about-snippet a {
-    color: #ff6f3c;
-    font-weight: 700;
-    text-decoration: none;
-    user-select: none;
-  }
-
-  .about-snippet a:hover {
-    text-decoration: underline;
-  }
-
-  /* Campaign Section */
-  .campaigns {
-    margin-bottom: 60px;
-  }
-
-  .campaigns h2 {
-    font-family: 'Orbitron', sans-serif;
-    font-size: 2rem;
-    color: #ff6f3c;
-    margin-bottom: 20px;
-    text-shadow:
-      0 0 5px #ff6f3c;
-  }
-
-  .campaign-card {
-    background: #222;
-    border-radius: 12px;
-    padding: 20px;
-    margin-bottom: 20px;
-    box-shadow:
-      0 0 10px #ff6f3c inset;
-  }
-
-  .campaign-title {
-    font-weight: 700;
-    font-size: 1.3rem;
-    margin-bottom: 10px;
-    color: #fff;
-  }
-
-  .campaign-desc {
-    margin-bottom: 15px;
-    color: #ccc;
-  }
-
-  .progress-bar {
-    background: #333;
-    border-radius: 20px;
-    overflow: hidden;
-    height: 22px;
-    margin-bottom: 10px;
-  }
-
-  .progress {
-    background: #00d2ff;
-    height: 100%;
-    width: 0;
-    border-radius: 20px 0 0 20px;
-    box-shadow: 0 0 10px #00d2ff;
-    transition: width 1.5s ease-in-out;
-  }
-
-  .donate-btn {
-    display: inline-block;
-    background: #ff6f3c;
-    color: #121212;
-    padding: 10px 25px;
-    border-radius: 30px;
-    font-weight: 700;
-    cursor: pointer;
-    user-select: none;
-    box-shadow: 0 0 8px #ff6f3c;
-    text-decoration: none;
-  }
-
-  .donate-btn:hover {
-    background: #ff3c00;
-    box-shadow: 0 0 14px #ff3c00;
-  }
-
-  /* Community Section */
-  .community {
-    text-align: center;
-    margin-bottom: 80px;
-  }
-
-  .community h2 {
-    font-family: 'Orbitron', sans-serif;
-    font-size: 2rem;
-    color: #00d2ff;
-    margin-bottom: 15px;
-    text-shadow:
-      0 0 5px #00d2ff;
-  }
-
-  .community p {
-    color: #aaa;
-    margin-bottom: 20px;
-    font-size: 1.1rem;
-  }
-
-  .community a {
-    display: inline-block;
-    background: #ff6f3c;
-    color: #121212;
-    padding: 12px 30px;
-    border-radius: 30px;
-    font-weight: 700;
-    text-decoration: none;
-    box-shadow: 0 0 10px #ff6f3c;
-    user-select: none;
-  }
-
-  .community a:hover {
-    background: #ff3c00;
-    box-shadow: 0 0 14px #ff3c00;
-  }
-
-  /* Footer */
-  footer {
-    width: 100%;
-    background: #111;
-    padding: 15px 0;
-    text-align: center;
-    color: #666;
-    font-size: 0.9rem;
-    user-select: none;
-  }
-
-  /* Responsive */
-  @media (max-width: 600px) {
-    .hero h1 {
-      font-size: 2rem;
+    .section {
+      padding: 40px 20px;
+      max-width: 1000px;
+      margin: auto;
     }
-
-    iframe {
-      height: 220px;
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 20px;
     }
-
-    .btn-group {
-      flex-direction: column;
-      gap: 10px;
+    .card {
+      background-color: #1f1f1f;
+      padding: 20px;
+      border: 1px solid #00ff00;
+      border-radius: 8px;
+      box-shadow: 0 0 10px #00ff00;
+      text-align: center;
+      transition: transform 0.2s;
     }
-  }
-</style>
+    .card:hover {
+      transform: scale(1.03);
+    }
+    .character-row {
+      display: flex;
+      justify-content: space-around;
+      gap: 20px;
+      margin-top: 20px;
+    }
+    .character-card {
+      background: #151515;
+      padding: 20px;
+      border-radius: 10px;
+      border: 2px solid #00ff00;
+      box-shadow: 0 0 8px #00ff00;
+      width: 30%;
+      text-align: center;
+    }
+    .character-card img {
+      border-radius: 50%;
+      width: 100px;
+      height: 100px;
+    }
+    .footer {
+      text-align: center;
+      padding: 20px;
+      background-color: #111;
+      font-size: 14px;
+      color: #888;
+      border-top: 1px solid #333;
+    }
+  </style>
 </head>
 <body>
-
-  <header class="container">
-    <div class="logo">HustleCode <span class="glitch-x">X</span></div>
-    <nav>
-      <button onclick="scrollToSection('latest-video')">Watch Latest</button>
-      <button onclick="scrollToSection('campaigns')">Support Projects</button>
-      <button onclick="scrollToSection('community')">Join Community</button>
-    </nav>
+  <header>
+    <h1>HustleMod X Dashboard</h1>
   </header>
 
-  <main class="container">
+  <nav>
+    <a href="#games">Games</a>
+    <a href="#mods">Modded Saves</a>
+    <a href="#characters">Codex</a>
+    <a href="#tools">Tools</a>
+  </nav>
 
-    <section class="hero">
-      <h1>From Addiction to Digital Empire</h1>
-      <p>Hacking life, games, and code with raw honesty and real results. Join the hustle for exclusive gaming mods, tech hacks, and impactful projects.</p>
-      <div class="btn-group">
-        <button class="btn-primary" onclick="scrollToSection('latest-video')">Watch Latest Video</button>
-        <button class="btn-secondary" onclick="scrollToSection('campaigns')">Support My Projects</button>
+  <div class="section" id="games">
+    <h2>Game Launchers</h2>
+    <div class="grid">
+      <div class="card">Jelly Bods</div>
+      <div class="card">TerminalQuest</div>
+      <div class="card">SHALTZ WORLD</div>
+      <div class="card">MoonOps</div>
+    </div>
+  </div>
+
+  <div class="section" id="mods">
+    <h2>Modded Game Saves</h2>
+    <div class="grid">
+      <div class="card">TerminalQuest - Maxed Save</div>
+      <div class="card">JellyBods - PvP Save</div>
+      <div class="card">MoonOps - Hardcore Mode</div>
+    </div>
+  </div>
+
+  <div class="section" id="characters">
+    <h2>Meet the Codex Crew</h2>
+    <div class="character-row">
+      <div class="character-card">
+        <img src="https://i.imgur.com/hzM6nIa.png" alt="MonkeyDoo">
+        <h3>MonkeyDoo</h3>
+        <p>Wildcard. Hacker. Chaos Engine.</p>
+        <audio controls src="https://actions.google.com/sounds/v1/cartoon/clang_and_wobble.ogg"></audio>
       </div>
-    </section>
+      <div class="character-card">
+        <img src="https://i.imgur.com/O9lqR8T.png" alt="James">
+        <h3>James</h3>
+        <p>The Hustler. Tactical Brain.</p>
+        <audio controls src="https://actions.google.com/sounds/v1/human_voices/man_speaking.ogg"></audio>
+      </div>
+      <div class="character-card">
+        <img src="https://i.imgur.com/tkGWZDi.png" alt="Matriarch">
+        <h3>The Matriarch</h3>
+        <p>Witty. Wise. Your Recovery Guide.</p>
+        <audio controls src="https://actions.google.com/sounds/v1/human_voices/female_speaking.ogg"></audio>
+      </div>
+    </div>
+  </div>
 
-    <section id="latest-video" class="video-section" aria-label="Latest YouTube Video">
-      <iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ" title="Latest HustleCode X video" allowfullscreen></iframe>
-    </section>
+  <div class="section" id="tools">
+    <h2>Tools & Features</h2>
+    <div class="grid">
+      <div class="card">🎮 Emulator Launcher</div>
+      <div class="card">💾 Save Modifier Tool</div>
+      <div class="card">☁️ Cloud Sync Setup</div>
+      <div class="card">📦 APK Bundle Builder</div>
+    </div>
+  </div>
 
-    <section class="about-snippet" aria-label="About HustleCode X">
-      <p><strong>Who is HustleCode X?</strong> A raw and real journey from addiction to creativity, hacking systems and gaming for profit and purpose. Bringing you tutorials, mods, and real stories that inspire and empower.</p>
-      <p><a href="#about-page" onclick="alert('About page coming soon!')">Read More →</a></p>
-    </section>
+  <div class="footer">
+    © 2025 HustleCodexX · Built in the modverse · All rights unleashed
+  </div>
 
-    <section id="campaigns" class="campaigns" aria-label="Active Fundraising Campaigns">
-      <h2>Active Campaigns</h2>
+  <style>
+    :root {
+      --main-bg: #0a0a0a;
+      --main-fg: #f1f1f1;
+      --highlight: #00ff00;
+    }
+    body.dark {
+      --main-bg: #f1f1f1;
+      --main-fg: #0a0a0a;
+      --highlight: #009900;
+    }
+    .dark-mode-toggle {
+      position: fixed;
+      top: 10px;
+      right: 10px;
+      background: var(--highlight);
+      border: none;
+      padding: 10px 15px;
+      cursor: pointer;
+      font-weight: bold;
+      border-radius: 5px;
+      color: #000;
+    }
+    .transition-fade {
+      animation: fadeIn ease 1.5s;
+      -webkit-animation: fadeIn ease 1.5s;
+      -moz-animation: fadeIn ease 1.5s;
+      -o-animation: fadeIn ease 1.5s;
+      -ms-animation: fadeIn ease 1.5s;
+    }
+    @keyframes fadeIn {
+      0% { opacity: 0; }
+      100% { opacity: 1; }
+    }
+  </style>
 
-      <article class="campaign-card" aria-label="Build Addiction Support App Campaign">
-        <h3 class="campaign-title">Build Addiction Support App</h3>
-        <p class="campaign-desc">Help me build a free, life-changing app to support those battling addiction with tech and community.</p>
-        <div class="progress-bar" role="progressbar" aria-valuenow="65" aria-valuemin="0" aria-valuemax="100">
-          <div class="progress" style="width: 65%;"></div>
-        </div>
-        <a class="donate-btn" href="https://gofund.me/yourcampaignlink" target="_blank" rel="noopener noreferrer">Donate Now</a>
-      </article>
+  <button class="dark-mode-toggle" onclick="toggleDarkMode()">🌗 Toggle Theme</button>
 
-      <article class="campaign-card" aria-label="Gaming Mod Pack Development Campaign">
-        <h3 class="campaign-title">Gaming Mod Pack Development</h3>
-        <p class="campaign-desc">Funding to create exclusive mod packs and cheat sheets for top games to share with my community.</p>
-        <div class="progress-bar" role="progressbar" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100">
-          <div class="progress" style="width: 40%;"></div>
-        </div>
-        <a class="donate-btn" href="https://gofund.me/yourcampaignlink2" target="_blank" rel="noopener noreferrer">Donate Now</a>
-      </article>
-    </section>
+  <script>
+    function toggleDarkMode() {
+      document.body.classList.toggle('dark');
+    }
+  </script>
 
-    <section id="community" class="community" aria-label="Community Invitation">
-      <h2>Join The HustleCode X Community</h2>
-      <p>Connect with fellow creators, gamers, and fighters. Get exclusive access to ideas, giveaways, and live Q&A.</p>
-      <a href="https://discord.gg/yourdiscordlink" target="_blank" rel="noopener noreferrer" aria-label="Join Discord">Join Discord</a>
-    </section>
+  <div class="section transition-fade" id="gofundme">
+    <h2>Support the HustleVerse</h2>
+    <p style="text-align: center;">
+      Help us expand this project and support recovery and community creativity.
+      <br>
+      <a href="https://www.gofundme.com/f/hustlecodexx" target="_blank" style="color: var(--highlight); font-weight: bold;">
+        🚀 Donate on GoFundMe
+      </a>
+    </p>
+  </div>
 
-  </main>
+  <div class="section transition-fade" id="lore">
+    <h2>HustleVerse Codex Lore</h2>
+    <div class="grid">
+      <div class="card">
+        <h3>🧬 Project Origin</h3>
+        <p>Born from real-world recovery, mod culture, and hustle-life hacks. HustleCodexX unites characters and players across reality and code.</p>
+      </div>
+      <div class="card">
+        <h3>🧠 Jelly Bods</h3>
+        <p>AI-mutable lifeforms shaped by emotion and addiction. Only those who recover memories unlock their full potential.</p>
+      </div>
+      <div class="card">
+        <h3>🌌 TerminalQuest</h3>
+        <p>Cyber-rogue worlds tracked by HustleBots in the underground. Players hack, scan, and alter reality via banana-shaped Codex USBs.</p>
+      </div>
+      <div class="card">
+        <h3>🕊️ The Matriarch</h3>
+        <p>She’s more than a guide—she’s memory incarnate. Once a voice of warning, now she stirs legends and gameplay paths via QR relics.</p>
+      </div>
+      <div class="card">
+        <h3>🐒 MonkeyDoo</h3>
+        <p>Reality glitched him into being. He breaks everything but somehow always fixes it with more chaos. Your loyal agent of unpredictability.</p>
+      </div>
+      <div class="card">
+        <h3>🧔 James</h3>
+        <p>You. The Hustler. Every save you make, every unlock you crack, James evolves—building HustleCodexX from underground myth to movement.</p>
+      </div>
+    </div>
+  </div>
 
-  <footer>
-    HustleCode X &copy; 2025 &nbsp;|&nbsp; Designed by James & ChatGPT
-  </footer>
 
-<script>
-  // Smooth scroll helper
-  function scrollToSection(id) {
-    const el = document.getElementById(id);
-    if(el) el.scrollIntoView({behavior: 'smooth'});
-  }
-</script>
+  <style>
+    .character-card img {
+      border-radius: 10px;
+      width: 100%;
+      height: auto;
+      box-shadow: 0 0 6px #00ff00;
+      margin-bottom: 10px;
+    }
+  </style>
+
+  <script>
+    function updateCharacterImages() {
+      document.querySelector('img[alt="MonkeyDoo"]').src = "../assets/characters/monkeydoo_sprite.png";
+      document.querySelector('img[alt="James"]').src = "../assets/characters/jamesnumetro_sprite.png";
+    }
+    window.onload = updateCharacterImages;
+  </script>
+
+
+  <style>
+    body {
+      background: url('../assets/omni_promo/main_menu_grid_poster.png') no-repeat center center fixed;
+      background-size: cover;
+      color: #ffffff;
+    }
+    .omni-promo-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 20px;
+      padding: 40px 20px;
+    }
+    .omni-promo-grid img {
+      width: 100%;
+      border: 3px solid #00ffff;
+      box-shadow: 0 0 12px #00ffff;
+      border-radius: 8px;
+    }
+  </style>
+
+  <div class="section" id="omni-visuals">
+    <h2>HustleCodex Omniverse Visual Archive</h2>
+    <div class="omni-promo-grid">
+      <img src="../assets/omni_promo/omni_recovery_rpg_cover.png" alt="Main Poster">
+      <img src="../assets/omni_promo/support_levels_poster.png" alt="Support Levels">
+      <img src="../assets/omni_promo/how_it_works_impact_poster.png" alt="How It Works">
+      <img src="../assets/omni_promo/research_goals_poster.png" alt="Research Goals">
+    </div>
+  </div>
 
 </body>
 </html>
