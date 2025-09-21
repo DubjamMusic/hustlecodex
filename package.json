@@ -1,5 +1,9 @@
 {
+ hustlecodeX
   "name": "hustlecodex-stack",
+
+  "name": "hustlecodex-v3",
+ main
   "version": "1.0.0",
   "scripts": {
     "dev": "next dev",
@@ -10,5 +14,13 @@
     "next": "latest",
     "react": "latest",
     "react-dom": "latest"
+ hustlecodeX
+
+  },
+  "devDependencies": {
+    "tailwindcss": "^3.3.0",
+    "autoprefixer": "^10.4.14",
+    "postcss": "^8.4.21"
+ main
   }
 }

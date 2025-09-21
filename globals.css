@@ -1,1 +1,8 @@
-// globals.css in styles
+hustlecodeX
+globals.css in styles
+
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+main
