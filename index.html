@@ -1,418 +1,269 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>HustleCode X — From Addiction to Digital Empire</title>
-<style>
-  /* Base Reset & Fonts */
-  @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@700&family=Roboto&display=swap');
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GOLDEN GLOBE | PRESTIGE CONSOLE</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --gold: #d4af37;
+            --deep-black: #020202;
+            --prestige-blue: #003366;
+            --glass: rgba(255, 255, 255, 0.05);
+        }
+        * { box-sizing: border-box; }
+        body {
+            background-color: var(--deep-black);
+            color: white;
+            font-family: 'Cinzel', serif;
+            margin: 0; 
+            overflow: hidden;
+            display: grid;
+            grid-template-columns: 350px 1fr;
+            height: 100vh;
+        }
 
-  * {
-    box-sizing: border-box;
-    margin: 0; padding: 0;
-  }
+        /* --- THE PERMANENT HEAD COMPLEX (Hierarchy) --- */
+        #hierarchy-sidebar {
+            background: linear-gradient(180deg, #0a0a0a 0%, #000 100%);
+            border-right: 1px solid var(--gold);
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            z-index: 10;
+            overflow-y: auto;
+        }
 
-  body {
-    font-family: 'Roboto', sans-serif;
-    background: #121212;
-    color: #eee;
-    min-height: 100vh;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-  }
+        .sector {
+            border: 1px solid #333;
+            padding: 15px;
+            cursor: pointer;
+            transition: 0.3s;
+            position: relative;
+            background: rgba(0,0,0,0.3);
+        }
+        .sector:hover { 
+            border-color: var(--gold); 
+            background: rgba(212, 175, 55, 0.05);
+            transform: translateX(5px);
+        }
+        .sector.locked { 
+            opacity: 0.4; 
+            cursor: not-allowed; 
+        }
+        .sector.locked:hover {
+            transform: none;
+        }
+        
+        .price-tag {
+            position: absolute;
+            top: 5px; right: 5px;
+            font-size: 0.7rem;
+            color: var(--gold);
+            font-weight: bold;
+        }
 
-  /* Container */
-  .container {
-    max-width: 900px;
-    width: 95%;
-    padding: 20px 15px;
-  }
+        /* --- THE GOLDEN GLOBE (Google Earth Simulation) --- */
+        #globe-viewport {
+            position: relative;
+            background: radial-gradient(circle, #1a1a1a 0%, #000 100%);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            overflow: hidden;
+        }
 
-  /* Header */
-  header {
-    width: 100%;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding-bottom: 15px;
-    border-bottom: 1px solid #333;
-  }
+        #central-orb {
+            width: 400px; height: 400px;
+            border-radius: 50%;
+            background: radial-gradient(circle at 30% 30%, #1a1a1a, #000);
+            box-shadow: 
+                0 0 100px rgba(212, 175, 55, 0.3), 
+                inset 0 0 50px rgba(212, 175, 55, 0.2),
+                inset -20px -20px 40px rgba(0,0,0,0.8);
+            border: 2px solid var(--gold);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            overflow: hidden;
+            position: relative;
+        }
 
-  .logo {
-    font-family: 'Orbitron', sans-serif;
-    font-size: 2rem;
-    color: #00d2ff;
-    letter-spacing: 3px;
-    position: relative;
-    user-select: none;
-  }
+        /* Rust-WASM Simulated Pulse */
+        .data-streak {
+            position: absolute;
+            width: 2px; height: 100px;
+            background: linear-gradient(to bottom, transparent, var(--gold));
+            filter: blur(1px);
+            animation: fall 2s infinite linear;
+            pointer-events: none;
+        }
 
-  /* Glitch effect on X */
-  .logo span.glitch-x {
-    position: relative;
-    color: #ff6f3c;
-    font-weight: 900;
-    animation: glitch 2s infinite;
-  }
+        @keyframes fall {
+            from { transform: translateY(-500px) rotate(45deg); opacity: 1; }
+            to { transform: translateY(500px) rotate(45deg); opacity: 0; }
+        }
 
-  @keyframes glitch {
-    0% {
-      text-shadow: 2px 0 #ff6f3c, -2px 0 #00d2ff;
-    }
-    20% {
-      text-shadow: -2px 2px #ff6f3c, 2px -2px #00d2ff;
-    }
-    40% {
-      text-shadow: 2px -2px #ff6f3c, -2px 2px #00d2ff;
-    }
-    60% {
-      text-shadow: -2px 0 #ff6f3c, 2px 0 #00d2ff;
-    }
-    80% {
-      text-shadow: 0 2px #ff6f3c, 0 -2px #00d2ff;
-    }
-    100% {
-      text-shadow: 2px 0 #ff6f3c, -2px 0 #00d2ff;
-    }
-  }
+        /* --- COMMAND INTERFACE --- */
+        #command-dock {
+            position: absolute;
+            bottom: 30px; left: 50%;
+            transform: translateX(-50%);
+            width: 600px;
+            max-width: 90%;
+            background: var(--glass);
+            backdrop-filter: blur(20px);
+            border: 1px solid var(--gold);
+            padding: 20px;
+            text-align: center;
+        }
 
-  nav button {
-    background: none;
-    border: 2px solid #ff6f3c;
-    color: #ff6f3c;
-    padding: 8px 15px;
-    font-weight: 700;
-    border-radius: 30px;
-    cursor: pointer;
-    transition: background 0.3s, color 0.3s;
-    margin-left: 10px;
-    font-family: 'Orbitron', sans-serif;
-  }
+        .prestige-btn {
+            background: var(--gold);
+            color: black;
+            border: none;
+            padding: 12px 40px;
+            font-weight: bold;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+        .prestige-btn:hover {
+            background: white;
+            transform: scale(1.05);
+            box-shadow: 0 0 20px rgba(212, 175, 55, 0.6);
+        }
 
-  nav button:hover {
-    background: #ff6f3c;
-    color: #121212;
-  }
+        .stats-display {
+            font-size: 0.8rem;
+            color: #aaa;
+            margin-bottom: 15px;
+            font-family: 'Courier New', monospace;
+        }
 
-  /* Hero Section */
-  .hero {
-    margin: 30px 0 50px;
-    text-align: center;
-  }
-
-  .hero h1 {
-    font-family: 'Orbitron', sans-serif;
-    font-size: 2.8rem;
-    color: #00d2ff;
-    margin-bottom: 15px;
-    text-shadow:
-      0 0 6px #00d2ff,
-      0 0 12px #ff6f3c,
-      0 0 18px #00d2ff;
-  }
-
-  .hero p {
-    font-size: 1.2rem;
-    color: #ddd;
-    max-width: 700px;
-    margin: 0 auto 30px;
-    line-height: 1.5;
-    filter: drop-shadow(0 0 2px #ff6f3c);
-  }
-
-  .btn-group {
-    display: flex;
-    justify-content: center;
-    gap: 15px;
-  }
-
-  .btn-primary, .btn-secondary {
-    font-family: 'Orbitron', sans-serif;
-    font-weight: 700;
-    border-radius: 30px;
-    padding: 15px 30px;
-    border: none;
-    cursor: pointer;
-    box-shadow: 0 0 8px #ff6f3c;
-    transition: all 0.3s ease;
-  }
-
-  .btn-primary {
-    background: #ff6f3c;
-    color: #121212;
-  }
-
-  .btn-primary:hover {
-    background: #ff5722;
-    box-shadow: 0 0 12px #ff5722;
-  }
-
-  .btn-secondary {
-    background: transparent;
-    color: #00d2ff;
-    border: 2px solid #00d2ff;
-    box-shadow: 0 0 8px #00d2ff;
-  }
-
-  .btn-secondary:hover {
-    background: #00d2ff;
-    color: #121212;
-    box-shadow: 0 0 14px #00d2ff;
-  }
-
-  /* Video Embed Section */
-  .video-section {
-    margin-bottom: 50px;
-    box-shadow:
-      0 0 15px #ff6f3c,
-      0 0 30px #00d2ff inset;
-    border-radius: 12px;
-    overflow: hidden;
-  }
-
-  iframe {
-    width: 100%;
-    height: 320px;
-    border: none;
-    display: block;
-  }
-
-  /* About Snippet */
-  .about-snippet {
-    background: #1c1c1c;
-    padding: 20px;
-    border-radius: 10px;
-    margin-bottom: 50px;
-    box-shadow: 0 0 15px #00d2ff;
-    line-height: 1.5;
-    color: #ccc;
-  }
-
-  .about-snippet p {
-    margin-bottom: 15px;
-  }
-
-  .about-snippet a {
-    color: #ff6f3c;
-    font-weight: 700;
-    text-decoration: none;
-    user-select: none;
-  }
-
-  .about-snippet a:hover {
-    text-decoration: underline;
-  }
-
-  /* Campaign Section */
-  .campaigns {
-    margin-bottom: 60px;
-  }
-
-  .campaigns h2 {
-    font-family: 'Orbitron', sans-serif;
-    font-size: 2rem;
-    color: #ff6f3c;
-    margin-bottom: 20px;
-    text-shadow:
-      0 0 5px #ff6f3c;
-  }
-
-  .campaign-card {
-    background: #222;
-    border-radius: 12px;
-    padding: 20px;
-    margin-bottom: 20px;
-    box-shadow:
-      0 0 10px #ff6f3c inset;
-  }
-
-  .campaign-title {
-    font-weight: 700;
-    font-size: 1.3rem;
-    margin-bottom: 10px;
-    color: #fff;
-  }
-
-  .campaign-desc {
-    margin-bottom: 15px;
-    color: #ccc;
-  }
-
-  .progress-bar {
-    background: #333;
-    border-radius: 20px;
-    overflow: hidden;
-    height: 22px;
-    margin-bottom: 10px;
-  }
-
-  .progress {
-    background: #00d2ff;
-    height: 100%;
-    width: 0;
-    border-radius: 20px 0 0 20px;
-    box-shadow: 0 0 10px #00d2ff;
-    transition: width 1.5s ease-in-out;
-  }
-
-  .donate-btn {
-    display: inline-block;
-    background: #ff6f3c;
-    color: #121212;
-    padding: 10px 25px;
-    border-radius: 30px;
-    font-weight: 700;
-    cursor: pointer;
-    user-select: none;
-    box-shadow: 0 0 8px #ff6f3c;
-    text-decoration: none;
-  }
-
-  .donate-btn:hover {
-    background: #ff3c00;
-    box-shadow: 0 0 14px #ff3c00;
-  }
-
-  /* Community Section */
-  .community {
-    text-align: center;
-    margin-bottom: 80px;
-  }
-
-  .community h2 {
-    font-family: 'Orbitron', sans-serif;
-    font-size: 2rem;
-    color: #00d2ff;
-    margin-bottom: 15px;
-    text-shadow:
-      0 0 5px #00d2ff;
-  }
-
-  .community p {
-    color: #aaa;
-    margin-bottom: 20px;
-    font-size: 1.1rem;
-  }
-
-  .community a {
-    display: inline-block;
-    background: #ff6f3c;
-    color: #121212;
-    padding: 12px 30px;
-    border-radius: 30px;
-    font-weight: 700;
-    text-decoration: none;
-    box-shadow: 0 0 10px #ff6f3c;
-    user-select: none;
-  }
-
-  .community a:hover {
-    background: #ff3c00;
-    box-shadow: 0 0 14px #ff3c00;
-  }
-
-  /* Footer */
-  footer {
-    width: 100%;
-    background: #111;
-    padding: 15px 0;
-    text-align: center;
-    color: #666;
-    font-size: 0.9rem;
-    user-select: none;
-  }
-
-  /* Responsive */
-  @media (max-width: 600px) {
-    .hero h1 {
-      font-size: 2rem;
-    }
-
-    iframe {
-      height: 220px;
-    }
-
-    .btn-group {
-      flex-direction: column;
-      gap: 10px;
-    }
-  }
-</style>
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            body {
+                grid-template-columns: 1fr;
+                grid-template-rows: auto 1fr;
+            }
+            #hierarchy-sidebar {
+                border-right: none;
+                border-bottom: 1px solid var(--gold);
+                max-height: 40vh;
+            }
+            #central-orb {
+                width: 250px;
+                height: 250px;
+            }
+        }
+    </style>
 </head>
 <body>
 
-  <header class="container">
-    <div class="logo">HustleCode <span class="glitch-x">X</span></div>
-    <nav>
-      <button onclick="scrollToSection('latest-video')">Watch Latest</button>
-      <button onclick="scrollToSection('campaigns')">Support Projects</button>
-      <button onclick="scrollToSection('community')">Join Community</button>
-    </nav>
-  </header>
-
-  <main class="container">
-
-    <section class="hero">
-      <h1>From Addiction to Digital Empire</h1>
-      <p>Hacking life, games, and code with raw honesty and real results. Join the hustle for exclusive gaming mods, tech hacks, and impactful projects.</p>
-      <div class="btn-group">
-        <button class="btn-primary" onclick="scrollToSection('latest-video')">Watch Latest Video</button>
-        <button class="btn-secondary" onclick="scrollToSection('campaigns')">Support My Projects</button>
-      </div>
-    </section>
-
-    <section id="latest-video" class="video-section" aria-label="Latest YouTube Video">
-      <iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ" title="Latest HustleCode X video" allowfullscreen></iframe>
-    </section>
-
-    <section class="about-snippet" aria-label="About HustleCode X">
-      <p><strong>Who is HustleCode X?</strong> A raw and real journey from addiction to creativity, hacking systems and gaming for profit and purpose. Bringing you tutorials, mods, and real stories that inspire and empower.</p>
-      <p><a href="#about-page" onclick="alert('About page coming soon!')">Read More →</a></p>
-    </section>
-
-    <section id="campaigns" class="campaigns" aria-label="Active Fundraising Campaigns">
-      <h2>Active Campaigns</h2>
-
-      <article class="campaign-card" aria-label="Build Addiction Support App Campaign">
-        <h3 class="campaign-title">Build Addiction Support App</h3>
-        <p class="campaign-desc">Help me build a free, life-changing app to support those battling addiction with tech and community.</p>
-        <div class="progress-bar" role="progressbar" aria-valuenow="65" aria-valuemin="0" aria-valuemax="100">
-          <div class="progress" style="width: 65%;"></div>
+    <div id="hierarchy-sidebar">
+        <h2 style="color: var(--gold); font-size: 0.9rem; letter-spacing: 3px; margin-top: 0;">COMPLEX HIERARCHY</h2>
+        
+        <div class="sector" onclick="selectSector(1)">
+            <div class="price-tag">UNLOCKED</div>
+            <strong>SECTOR 01: ROUTING HUB</strong>
+            <p style="font-size: 0.7rem; margin: 8px 0 0 0; opacity: 0.8;">O(1) Mux Logic • Edge Efficiency</p>
         </div>
-        <a class="donate-btn" href="https://gofund.me/yourcampaignlink" target="_blank" rel="noopener noreferrer">Donate Now</a>
-      </article>
 
-      <article class="campaign-card" aria-label="Gaming Mod Pack Development Campaign">
-        <h3 class="campaign-title">Gaming Mod Pack Development</h3>
-        <p class="campaign-desc">Funding to create exclusive mod packs and cheat sheets for top games to share with my community.</p>
-        <div class="progress-bar" role="progressbar" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100">
-          <div class="progress" style="width: 40%;"></div>
+        <div class="sector locked" onclick="showPaywall(2)">
+            <div class="price-tag">5,000 🔲</div>
+            <strong>SECTOR 02: THE CIPHER VAULT</strong>
+            <p style="font-size: 0.7rem; margin: 8px 0 0 0; opacity: 0.8;">RSA-256 Auth • Zero-Trust Architect</p>
         </div>
-        <a class="donate-btn" href="https://gofund.me/yourcampaignlink2" target="_blank" rel="noopener noreferrer">Donate Now</a>
-      </article>
-    </section>
 
-    <section id="community" class="community" aria-label="Community Invitation">
-      <h2>Join The HustleCode X Community</h2>
-      <p>Connect with fellow creators, gamers, and fighters. Get exclusive access to ideas, giveaways, and live Q&A.</p>
-      <a href="https://discord.gg/yourdiscordlink" target="_blank" rel="noopener noreferrer" aria-label="Join Discord">Join Discord</a>
-    </section>
+        <div class="sector locked" onclick="showPaywall(3)">
+            <div class="price-tag">10,000 🔲</div>
+            <strong>SECTOR 03: THE SPECTER LAB</strong>
+            <p style="font-size: 0.7rem; margin: 8px 0 0 0; opacity: 0.8;">Anomaly Detection • Ghost-Work Protocol</p>
+        </div>
 
-  </main>
+        <div class="sector locked" onclick="showPaywall(4)">
+            <div class="price-tag">PRIVATE SALE ONLY</div>
+            <strong>SECTOR 04: NEXUS CORE</strong>
+            <p style="font-size: 0.7rem; margin: 8px 0 0 0; opacity: 0.8;">Full Global Orchestration</p>
+        </div>
+    </div>
 
-  <footer>
-    HustleCode X &copy; 2025 &nbsp;|&nbsp; Designed by James & ChatGPT
-  </footer>
+    <div id="globe-viewport">
+        <div id="central-orb">
+            <div style="color: var(--gold); text-align: center; z-index: 2; position: relative;">
+                <h1 style="margin: 0; font-size: 2rem;">GOLDEN GLOBE</h1>
+                <p style="font-size: 0.6rem; opacity: 0.6; margin: 10px 0 0 0; font-family: 'Courier New', monospace;">RUST_WASM_ENGINE_ACTIVE</p>
+                <p style="font-size: 0.5rem; opacity: 0.4; margin: 5px 0 0 0;" id="node-count">NODES: 247 | LATENCY: 23ms</p>
+            </div>
+        </div>
 
-<script>
-  // Smooth scroll helper
-  function scrollToSection(id) {
-    const el = document.getElementById(id);
-    if(el) el.scrollIntoView({behavior: 'smooth'});
-  }
-</script>
+        <div id="command-dock">
+            <div class="stats-display" id="stats-display">
+                "The Routing Hub currently handles 1,000 requests/sec across 200+ edge nodes."
+            </div>
+            <button class="prestige-btn" onclick="simulateLoad()">Initiate Global Pulse</button>
+        </div>
+    </div>
 
+    <script>
+        let pulseCount = 0;
+        
+        function simulateLoad() {
+            pulseCount++;
+            document.getElementById('stats-display').textContent = 
+                `PULSE ${pulseCount} INITIATED • Simulating distributed load across ${200 + (pulseCount * 10)} edge nodes...`;
+            
+            for(let i=0; i<15; i++) {
+                setTimeout(() => {
+                    const streak = document.createElement('div');
+                    streak.className = 'data-streak';
+                    streak.style.left = Math.random() * 100 + '%';
+                    streak.style.animationDuration = (Math.random() * 1 + 0.5) + 's';
+                    streak.style.animationDelay = (Math.random() * 0.5) + 's';
+                    document.getElementById('globe-viewport').appendChild(streak);
+                    setTimeout(() => streak.remove(), 2500);
+                }, i * 80);
+            }
+
+            // Update node count with realistic fluctuation
+            setTimeout(() => {
+                const nodes = 247 + Math.floor(Math.random() * 20);
+                const latency = 20 + Math.floor(Math.random() * 15);
+                document.getElementById('node-count').textContent = 
+                    `NODES: ${nodes} | LATENCY: ${latency}ms`;
+            }, 1000);
+        }
+
+        function selectSector(sectorId) {
+            document.getElementById('stats-display').textContent = 
+                `SECTOR 01 ACTIVE • Full access granted • Monitoring ${1000 + Math.floor(Math.random() * 500)} concurrent connections`;
+        }
+
+        function showPaywall(sectorId) {
+            const messages = {
+                2: "SECTOR 02 LOCKED • Cipher Vault requires 5,000 credits or premium access",
+                3: "SECTOR 03 LOCKED • Specter Lab requires 10,000 credits or enterprise tier",
+                4: "SECTOR 04 LOCKED • Nexus Core available via private sale only • Contact: access@goldenglobetech.io"
+            };
+            document.getElementById('stats-display').textContent = messages[sectorId];
+        }
+
+        // Ambient animation on load
+        setInterval(() => {
+            const streak = document.createElement('div');
+            streak.className = 'data-streak';
+            streak.style.left = Math.random() * 100 + '%';
+            streak.style.animationDuration = (Math.random() * 2 + 1) + 's';
+            streak.style.opacity = '0.3';
+            document.getElementById('globe-viewport').appendChild(streak);
+            setTimeout(() => streak.remove(), 3000);
+        }, 3000);
+    </script>
 </body>
 </html>
