@@ -14,15 +14,14 @@ function GameplayCarousel() {
       <h2 className="text-2xl font-bold mb-6">Gameplay Showcase</h2>
       <div className="flex overflow-x-scroll space-x-6">
         {GAMEPLAY_IMAGES.map((image) => (
-          <div key={image.id} className="relative rounded-lg w-80 h-48 flex-shrink-0">
-            <Image
-              src={`/img/${image.filename}`}
-              alt={image.alt}
-              fill
-              className="rounded-lg object-cover"
-              sizes="320px"
-            />
-          </div>
+          <Image
+            key={image.id}
+            src={`/img/${image.filename}`}
+            alt={image.alt}
+            width={320}
+            height={192}
+            className="rounded-lg object-cover flex-shrink-0"
+          />
         ))}
       </div>
     </section>
