@@ -1,5 +1,6 @@
 
 import React, { useState, useRef } from 'react';
+import Head from 'next/head';
 import PrestigeSidebar from '../components/PrestigeSidebar';
 import GoldenGlobe, { GoldenGlobeRef } from '../components/GoldenGlobe';
 import CommandDock from '../components/CommandDock';
@@ -47,27 +48,34 @@ export default function Home() {
   };
 
   return (
-    <main className="bg-black text-white min-h-screen">
-      {/* Dashboard Layout - Sidebar + Globe */}
-      <div className="grid grid-cols-1 md:grid-cols-[350px_1fr] grid-rows-[auto_1fr] md:grid-rows-1 h-screen overflow-hidden">
-        <div className="md:border-r-0 border-b md:border-b-0 border-gold md:max-h-none max-h-[40vh]">
-          <PrestigeSidebar
-            onSectorSelect={handleSectorSelect}
-            onLockedSectorClick={handleLockedSectorClick}
-          />
+    <>
+      <Head>
+        <title>Golden Globe - Prestige Console | HustleCodex</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+      </Head>
+      
+      <main className="bg-black text-white min-h-screen">
+        {/* Dashboard Layout - Sidebar + Globe */}
+        <div className="grid grid-cols-1 md:grid-cols-[350px_1fr] grid-rows-[auto_1fr] md:grid-rows-1 h-screen overflow-hidden">
+          <div className="md:border-r-0 border-b md:border-b-0 border-gold md:max-h-none max-h-[40vh]">
+            <PrestigeSidebar
+              onSectorSelect={handleSectorSelect}
+              onLockedSectorClick={handleLockedSectorClick}
+            />
+          </div>
+          
+          <div className="relative">
+            <GoldenGlobe ref={globeRef} />
+            <CommandDock statsMessage={statsMessage} onPulseClick={handlePulseClick} />
+          </div>
         </div>
-        
-        <div className="relative">
-          <GoldenGlobe ref={globeRef} />
-          <CommandDock statsMessage={statsMessage} onPulseClick={handlePulseClick} />
-        </div>
-      </div>
 
-      {/* Below the fold sections */}
-      <div className="overflow-x-hidden">
-        <SupportLevels />
-        <GameplayCarousel />
-      </div>
-    </main>
+        {/* Below the fold sections */}
+        <div className="overflow-x-hidden">
+          <SupportLevels />
+          <GameplayCarousel />
+        </div>
+      </main>
+    </>
   );
 }
