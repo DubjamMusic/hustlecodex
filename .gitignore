@@ -1,4 +1,8 @@
 node_modules
 .next
-out
+yarn.lock
+.pnp.cjs
+.pnp.loader.mjs
+.yarn/
 .DS_Store
+
