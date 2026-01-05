@@ -7,6 +7,7 @@ export interface ExecuteDirectiveRequest {
   rulesetName?: string;
   competitionMode?: boolean;
   includeDetails?: boolean;
+  includeUltimate?: boolean;  // Enable cross-functional ultimate team
 }
 
 export interface ExecuteDirectiveResponse {

@@ -62,6 +62,12 @@ export class LLMIntegration {
       content = this.generateShadowResponse(userMessage?.content || '');
     } else if (systemMessage?.content.includes('Apex')) {
       content = this.generateApexResponse(userMessage?.content || '');
+    } else if (systemMessage?.content.includes('Synergy')) {
+      content = this.generateSynergyResponse(userMessage?.content || '');
+    } else if (systemMessage?.content.includes('Sentinel')) {
+      content = this.generateSentinelResponse(userMessage?.content || '');
+    } else if (systemMessage?.content.includes('Catalyst')) {
+      content = this.generateCatalystResponse(userMessage?.content || '');
     } else {
       content = `Analysis of: ${userMessage?.content}\n\nThis is a mock response for demonstration purposes.`;
     }
@@ -288,6 +294,158 @@ Team Omega delivers measurably superior results through aggressive optimization 
 Speed + Intelligence + Paranoia = Victory. Team Omega doesn't play for second place.`;
   }
 
+  private generateSynergyResponse(directive: string): string {
+    return `**Ecosystem Context:**
+Multi-stakeholder landscape with diverse perspectives: ${directive}
+- Primary actors: Direct participants and beneficiaries
+- Secondary influences: Market forces, regulatory environment, technology trends
+- Ecosystem dynamics: Interconnected feedback loops between stakeholders
+
+**Data Insights:**
+Quantitative analysis reveals:
+- 73% alignment between Team Alpha's thoroughness and Team Omega's speed on core metrics
+- Cross-functional patterns indicate 2.3x efficiency gains through collaborative approaches
+- Data shows optimal balance point at 60% Alpha methodology + 40% Omega innovation
+
+**Cross-Functional Patterns:**
+- Pattern 1: Risk-aware innovation yields 45% better long-term outcomes than pure aggression
+- Pattern 2: Methodical speed (Alpha analysis + Omega execution) outperforms either alone
+- Pattern 3: Ecosystem-level optimization requires balancing competing stakeholder needs
+
+**Collaborative Opportunities:**
+- Synergy Point A: Combine Cipher's pattern recognition with Quantum's predictive modeling
+- Synergy Point B: Integrate Specter's caution with Shadow's paranoia for robust risk frameworks
+- Synergy Point C: Merge Nexus's vision with Apex's optimization for transformative strategies
+
+**Confidence Assessment:**
+Confidence: 88%
+High confidence based on cross-validated data from both team approaches and ecosystem analysis.
+
+**Feedback Loop:**
+\`\`\`javascript
+feedbackLoop: function(data) {
+    console.log("Re-constructing context for Teams and collaborative communication");
+    // Key feedback points:
+    // 1. Validate stakeholder priorities with both teams
+    // 2. Iterate on risk-innovation balance based on real-world constraints
+    // 3. Refine collaborative mechanisms for cross-functional excellence
+}
+\`\`\``;
+  }
+
+  private generateSentinelResponse(directive: string): string {
+    return `**Ecosystem Vulnerabilities:**
+Comprehensive risk assessment across stakeholder landscape:
+- Systemic Risk: Over-reliance on single team methodology creates blind spots
+- Coordination Risk: Poor cross-functional communication leads to strategy failures
+- Adaptation Risk: Rigid approaches fail when ecosystem conditions shift rapidly
+- Resilience Gap: Current frameworks lack feedback loops for continuous improvement
+
+**Resilience Opportunities:**
+Transform vulnerabilities into strengths:
+1. Diversity Advantage: Multiple analytical approaches create robust decision-making
+2. Collaborative Defense: Cross-team validation catches errors before they cascade
+3. Adaptive Capacity: Feedback loops enable rapid response to changing conditions
+4. Ecosystem Resilience: Stakeholder coordination builds anti-fragile systems
+
+**Cross-Functional Dependencies:**
+Critical interdependencies requiring team coordination:
+- Data Analysis ↔ Risk Assessment: Synergy must inform Sentinel's risk priorities
+- Risk Management ↔ Strategy: Sentinel's frameworks must guide Catalyst's orchestration
+- Strategy ↔ Execution: All teams must align on implementation priorities
+
+**Mitigation Framework:**
+Practical risk management through collaboration:
+- Phase 1: Establish cross-team risk monitoring (weekly sync meetings)
+- Phase 2: Build shared resilience dashboards (real-time risk visibility)
+- Phase 3: Create joint response protocols (coordinated crisis management)
+- Phase 4: Implement continuous learning loops (post-action reviews)
+
+**Confidence Level:**
+Confidence: 84%
+High confidence in framework, moderate uncertainty in execution details.
+
+**Feedback Loop:**
+\`\`\`javascript
+feedbackLoop: function(data) {
+    console.log("Re-constructing context for Teams and collaborative communication");
+    // Risk monitoring requirements:
+    // - Track emerging threats across all team perspectives
+    // - Measure mitigation effectiveness through collaborative metrics
+    // - Update resilience frameworks based on real-world outcomes
+}
+\`\`\``;
+  }
+
+  private generateCatalystResponse(directive: string): string {
+    return `**Ecosystem Vision:**
+Team Ultimate Strategy - Cross-Functional Ecosystem Orchestration (2026)
+
+Transformative approach: ${directive}
+
+Rather than choosing between Team Alpha's balance and Team Omega's aggression, we orchestrate BOTH through collaborative intelligence. The vision: Create an ecosystem where diverse analytical approaches strengthen each other, generating strategies that transcend individual team capabilities.
+
+Key Transformation: Competition → Collaboration → Exponential Value
+
+**Cross-Functional Integration:**
+Synergy's ecosystem analysis + Sentinel's resilience framework = Robust, innovative strategy
+
+Integration Mechanisms:
+1. Shared Context Platform: Real-time visibility across all team analyses
+2. Collaborative Decision Forums: Joint strategy sessions leveraging diverse perspectives
+3. Feedback Loop Infrastructure: Continuous learning from cross-functional execution
+4. Performance Synthesis: Combined metrics measuring collaborative effectiveness
+
+**Orchestration Framework:**
+Practical coordination for ecosystem-level success:
+- Governance: Rotating leadership ensuring all perspectives influence decisions
+- Communication: Structured feedback loops re-constructing context for all teams
+- Execution: Parallel workstreams with defined integration points
+- Learning: Post-execution reviews capturing cross-functional insights
+
+**Success Metrics:**
+Ecosystem-level KPIs for collaborative excellence:
+- Collaborative Efficiency: 2.5x baseline (vs. single-team approaches)
+- Stakeholder Satisfaction: 90%+ across all ecosystem participants
+- Innovation Rate: 3x improvement through diverse perspective synthesis
+- Resilience Score: 95%+ survival rate under stress scenarios
+- Learning Velocity: 40% reduction in time-to-insight through collaboration
+
+**Implementation Roadmap:**
+Phased approach with continuous feedback:
+- Week 1-2: Establish cross-functional coordination infrastructure
+- Week 3-4: Execute pilot initiatives with all teams engaged
+- Week 5-6: Measure, learn, and refine collaborative mechanisms
+- Ongoing: Scale successful patterns across entire ecosystem
+
+**Confidence Level:**
+Confidence: 91%
+Very high confidence - collaborative approaches consistently outperform competitive ones.
+
+**Feedback Loop:**
+\`\`\`javascript
+feedbackLoop: function(data) {
+    console.log("Re-constructing context for Teams and collaborative communication");
+    // Continuous improvement cycle:
+    // 1. Gather input from all teams on strategy effectiveness
+    // 2. Identify synergy opportunities and coordination gaps
+    // 3. Adjust orchestration framework based on collective insights
+    // 4. Measure collaborative intelligence vs. competitive intelligence
+    // 5. Scale what works, eliminate what doesn't
+}
+\`\`\`
+
+**2026 Strategy Fulfillment:**
+This strategy directly delivers on "Cross-functional ecosystem orchestration":
+✓ Breaks down Alpha vs. Omega competition into Teams + Collaboration
+✓ Creates shared value through diverse perspective synthesis
+✓ Builds resilient, adaptive strategies through continuous feedback
+✓ Demonstrates that 1+1+1 > 3 through collaborative excellence
+✓ Establishes foundation for sustainable competitive advantage
+
+Team Ultimate embodies the principle: **"The best strategy emerges not from the smartest team, but from the wisest collaboration."**`;
+  }
+
   getRequestCount(): number {
     return this.requestCount;
   }
@@ -302,7 +460,7 @@ Speed + Intelligence + Paranoia = Victory. Team Omega doesn't play for second pl
   }
 }
 
-export async function loadPrompt(team: 'alpha' | 'omega', agent: string): Promise<string> {
+export async function loadPrompt(team: 'alpha' | 'omega' | 'ultimate', agent: string): Promise<string> {
   const promptPath = path.join(
     process.cwd(),
     'config',

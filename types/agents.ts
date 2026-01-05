@@ -1,4 +1,4 @@
-export type TeamType = 'alpha' | 'omega';
+export type TeamType = 'alpha' | 'omega' | 'ultimate';
 
 export interface AgentContext {
   directive: string;

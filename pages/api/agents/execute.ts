@@ -27,7 +27,7 @@ export default async function handler(
   }
 
   try {
-    const { directive, rulesetName, competitionMode, includeDetails } = req.body as ExecuteDirectiveRequest;
+    const { directive, rulesetName, competitionMode, includeDetails, includeUltimate } = req.body as ExecuteDirectiveRequest;
 
     // Validate input
     if (!directive || typeof directive !== 'string' || directive.trim().length === 0) {
@@ -49,7 +49,8 @@ export default async function handler(
     const result = await orch.executeDirective(
       sanitizedDirective,
       rulesetName || 'default-rules',
-      competitionMode !== false // Default to true
+      competitionMode !== false, // Default to true
+      includeUltimate || false  // Default to false
     );
 
     const response: ExecuteDirectiveResponse = {
@@ -63,10 +64,18 @@ export default async function handler(
       timestamp: result.timestamp
     };
 
+    // Include ultimate team validation if enabled
+    if (includeUltimate && result.ultimateValidation) {
+      (response.validationReports as any).ultimate = result.ultimateValidation;
+    }
+
     // Include full details if requested
     if (includeDetails) {
       (response as any).alphaOutputs = result.alphaOutputs;
       (response as any).omegaOutputs = result.omegaOutputs;
+      if (includeUltimate && result.ultimateOutputs) {
+        (response as any).ultimateOutputs = result.ultimateOutputs;
+      }
     }
 
     res.status(200).json(response);
