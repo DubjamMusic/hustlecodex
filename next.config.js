@@ -16,12 +16,6 @@ const nextConfig = {
   
   // Disable powered by header for security
   poweredByHeader: false,
-  
-  // Environment variables that should be available on the client
-  env: {
-    SITE_NAME: 'Golden Globe - Prestige Console',
-    SITE_URL: process.env.NEXT_PUBLIC_SITE_URL || 'https://hustlecodex.vercel.app',
-  },
 };
 
 module.exports = nextConfig;
