@@ -127,4 +127,3 @@ const GoldenGlobe = forwardRef<GoldenGlobeRef>((props, ref) => {
 GoldenGlobe.displayName = 'GoldenGlobe';
 
 export default GoldenGlobe;
-
