@@ -1,0 +1,39 @@
+name: Strategic Planning
+description: Rules specific to strategic planning and decision-making
+rules:
+  - id: min_length
+    name: Minimum Content Length
+    description: Strategic output must be comprehensive (at least 200 characters)
+    type: programmatic
+    severity: error
+    min_chars: 200
+  
+  - id: goals_identified
+    name: Goals Identified
+    description: Must clearly identify strategic goals
+    type: llm
+    severity: error
+  
+  - id: metrics_defined
+    name: Success Metrics Defined
+    description: Must include measurable success metrics
+    type: llm
+    severity: error
+  
+  - id: timeline_present
+    name: Timeline Present
+    description: Should include implementation timeline
+    type: llm
+    severity: warning
+  
+  - id: risk_consideration
+    name: Risk Consideration
+    description: Must address potential risks and mitigation
+    type: llm
+    severity: error
+  
+  - id: competitive_analysis
+    name: Competitive Analysis
+    description: Should include competitive considerations
+    type: llm
+    severity: info

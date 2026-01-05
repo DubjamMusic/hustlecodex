@@ -1,0 +1,39 @@
+name: Default Rules
+description: Basic validation rules for all agent outputs
+rules:
+  - id: min_length
+    name: Minimum Content Length
+    description: Output must contain at least 100 characters
+    type: programmatic
+    severity: error
+    min_chars: 100
+  
+  - id: confidence_present
+    name: Confidence Score Present
+    description: Output must include a confidence score
+    type: programmatic
+    severity: error
+  
+  - id: structured_format
+    name: Structured Format
+    description: Output should follow the prescribed structure
+    type: programmatic
+    severity: warning
+  
+  - id: logical_consistency
+    name: Logical Consistency
+    description: Output must be internally consistent and logical
+    type: llm
+    severity: error
+  
+  - id: actionable_insights
+    name: Actionable Insights
+    description: Output should provide specific, actionable recommendations
+    type: llm
+    severity: warning
+  
+  - id: no_contradictions
+    name: No Internal Contradictions
+    description: Output should not contain contradictory statements
+    type: llm
+    severity: error

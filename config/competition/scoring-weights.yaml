@@ -1,0 +1,41 @@
+# Scoring Weights Configuration
+# These weights determine how different performance dimensions contribute to the final score
+
+# Quality: Depth of analysis, logical consistency, innovation
+quality_weight: 0.40
+
+# Speed: Response time, iteration efficiency
+speed_weight: 0.20
+
+# Collaboration: How well agents work together within teams
+collaboration_weight: 0.20
+
+# Innovation: Creativity, novel approaches, unique insights
+innovation_weight: 0.20
+
+# Performance calculation thresholds
+thresholds:
+  # Minimum acceptable score (0-100)
+  minimum_passing_score: 60
+  
+  # Excellent performance threshold
+  excellent_threshold: 85
+  
+  # Speed benchmarks (in milliseconds)
+  speed:
+    excellent: 5000
+    good: 10000
+    acceptable: 15000
+  
+  # Quality score ranges (0-100)
+  quality:
+    excellent_min: 90
+    good_min: 75
+    acceptable_min: 60
+
+# Tie-breaker rules (in order of precedence)
+tie_breakers:
+  - quality_score
+  - innovation_score
+  - speed_score
+  - collaboration_score

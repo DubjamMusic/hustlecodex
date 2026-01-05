@@ -1,0 +1,73 @@
+# Praise Templates for Team Recognition
+
+victory:
+  decisive:
+    - "🏆 **{team} DOMINATES!** A commanding victory with a {margin}% advantage. Outstanding performance!"
+    - "🎯 **{team} CRUSHES IT!** {winning_score} vs {losing_score} - absolute mastery displayed!"
+    - "⚡ **{team} UNSTOPPABLE!** Decisive win by {margin} points. Incredible execution!"
+  
+  close:
+    - "🥇 **{team} Edges Out Victory!** A nail-biter at {winning_score} vs {losing_score}. Well fought!"
+    - "💪 **{team} Secures the Win!** Close battle, but {team} prevailed with superior {strength}."
+    - "🎖️ **{team} Takes It!** Narrow victory by {margin} points. Every bit counted!"
+  
+  comeback:
+    - "🔥 **{team} COMEBACK!** Overcame early deficit to win {winning_score} vs {losing_score}!"
+    - "🚀 **{team} Rallies to Victory!** Amazing turnaround in the final analysis!"
+
+tie:
+  - "🤝 **Dead Heat!** Both teams scored {score} points. Absolutely matched performance!"
+  - "⚖️ **Perfect Balance!** Teams tied at {score}. Both delivered excellence!"
+  - "🏁 **Too Close to Call!** {score} vs {score} - incredible parity in performance!"
+
+specific_achievements:
+  quality_excellence:
+    - "📊 Exceptional analytical depth demonstrated"
+    - "🧠 Outstanding logical consistency and reasoning"
+    - "💎 Remarkable insight quality"
+  
+  speed_excellence:
+    - "⚡ Lightning-fast execution at {time}ms"
+    - "🏃 Impressive response time efficiency"
+    - "⏱️ Optimal processing speed achieved"
+  
+  innovation_excellence:
+    - "💡 Groundbreaking innovative approach"
+    - "🌟 Creative solution that stands out"
+    - "🎨 Novel perspective that challenges conventions"
+  
+  collaboration_excellence:
+    - "🤝 Seamless team coordination"
+    - "🔗 Perfect synthesis across agents"
+    - "👥 Exemplary collaborative workflow"
+
+improvement_suggestions:
+  quality:
+    - "Consider deeper analysis in future iterations"
+    - "Strengthen logical connections between points"
+    - "Expand on key insights with more evidence"
+  
+  speed:
+    - "Look for optimization opportunities to improve response time"
+    - "Streamline analysis process for faster delivery"
+  
+  innovation:
+    - "Push boundaries with more creative approaches"
+    - "Consider unconventional perspectives"
+    - "Challenge assumptions more aggressively"
+  
+  collaboration:
+    - "Improve information flow between agents"
+    - "Strengthen synthesis of team insights"
+    - "Enhance coordination and build on each other's work"
+
+streak_milestones:
+  3: "🔥 **3-Win Streak!** {team} is on fire!"
+  5: "⚡ **5-Win Streak!** {team} is absolutely dominating!"
+  10: "👑 **10-Win Streak!** {team} is legendary!"
+  20: "🏆 **20-Win Streak!** {team} has achieved dynasty status!"
+
+agent_mvp:
+  - "🌟 **MVP: {agent}** - Outstanding individual performance!"
+  - "👏 **Star Performer: {agent}** - Carried the team to victory!"
+  - "💫 **{agent} Shines!** - Key contributor to this win!"

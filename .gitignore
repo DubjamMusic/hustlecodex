@@ -5,4 +5,9 @@ yarn.lock
 .pnp.loader.mjs
 .yarn/
 .DS_Store
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+*.log
 

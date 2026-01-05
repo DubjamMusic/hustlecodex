@@ -1,0 +1,33 @@
+name: Technical Assessment
+description: Rules for technical analysis and evaluation
+rules:
+  - id: min_length
+    name: Minimum Content Length
+    description: Technical output must be detailed (at least 150 characters)
+    type: programmatic
+    severity: error
+    min_chars: 150
+  
+  - id: technical_accuracy
+    name: Technical Accuracy
+    description: Technical claims must be accurate and verifiable
+    type: llm
+    severity: error
+  
+  - id: feasibility_analysis
+    name: Feasibility Analysis
+    description: Must assess technical feasibility
+    type: llm
+    severity: error
+  
+  - id: implementation_details
+    name: Implementation Details
+    description: Should provide implementation specifics
+    type: llm
+    severity: warning
+  
+  - id: alternatives_considered
+    name: Alternatives Considered
+    description: Should discuss alternative technical approaches
+    type: llm
+    severity: info
