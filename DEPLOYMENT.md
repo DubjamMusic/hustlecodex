@@ -40,7 +40,7 @@
 
 #### Step 3: Configure Environment Variables
 
-Delete the placeholder `EXAMPLE_NAME` variable and add the following required environment variables:
+If there are any placeholder variables (like `EXAMPLE_NAME`), delete them. Then add the following required environment variables:
 
 **Required for Stripe Integration (Golden Globe Console):**
 - `STRIPE_SECRET_KEY`: Your Stripe secret key (format: `sk_live_...` for production or `sk_test_...` for testing)
