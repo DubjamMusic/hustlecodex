@@ -17,17 +17,24 @@ const profileSchema = z.object({
   bio: z.string()
     .max(300, 'Bio must not exceed 300 characters')
     .optional()
-    .or(z.literal('')),
+    .transform(val => val === '' ? undefined : val),
   website: z.string()
     .url('Please enter a valid URL')
     .optional()
-    .or(z.literal('')),
+    .transform(val => val === '' ? undefined : val),
 });
 
 type ProfileFormData = z.infer<typeof profileSchema>;
 
 export default function ProfilePage() {
   const [submitSuccess, setSubmitSuccess] = useState(false);
+  const isMountedRef = React.useRef(true);
+  
+  React.useEffect(() => {
+    return () => {
+      isMountedRef.current = false;
+    };
+  }, []);
   
   const {
     register,
@@ -51,10 +58,17 @@ export default function ProfilePage() {
       await new Promise(resolve => setTimeout(resolve, 1000));
       
       console.log('Form submitted:', data);
-      setSubmitSuccess(true);
       
-      // Reset success message after 3 seconds
-      setTimeout(() => setSubmitSuccess(false), 3000);
+      if (isMountedRef.current) {
+        setSubmitSuccess(true);
+        
+        // Reset success message after 3 seconds
+        setTimeout(() => {
+          if (isMountedRef.current) {
+            setSubmitSuccess(false);
+          }
+        }, 3000);
+      }
     } catch (error) {
       console.error('Error submitting form:', error);
     }
