@@ -21,7 +21,7 @@ Individuals in recovery who want to channel their energy into learning coding an
 - **Next.js** (App Router and Pages Router hybrid)
 - **React 19** (with TypeScript)
 - **TypeScript 5.x** (strict mode enabled)
-- **Node.js 18+**
+- **Node.js 18.0.0+** (specified in package.json engines)
 
 ### Styling & UI
 - **Tailwind CSS 3.4+** for all styling (no inline styles)
@@ -29,7 +29,7 @@ Individuals in recovery who want to channel their energy into learning coding an
   - Gold: `#d4af37` (use `text-gold`, `bg-gold`)
   - Deep Black: `#020202` (use `bg-deep-black`)
   - Prestige Blue: `#003366` (use `text-prestige-blue`)
-  - Note: HustleCodeX theme colors (cyan, orange, purple) are currently defined but may need to be moved to the colors section for proper usage
+  - Note: HustleCodeX theme colors (cyan: `#00D4AA`, orange: `#FF6B35`, purple: `#7B68EE`) are currently misplaced in the `fontFamily` section and should be moved to the `colors` section for proper usage
 - **Fonts** (defined in `tailwind.config.js`):
   - Cinzel (serif) for prestige/title elements (use `font-cinzel`)
   - Inter/system fonts (use `font-sans`)
