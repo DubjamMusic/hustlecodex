@@ -1,3 +1,6 @@
+import React from 'react';
+
+function ParallaxHero() {
 import { useEffect, useRef, useState } from 'react';
 
 export default function ParallaxHero() {
@@ -273,3 +276,5 @@ export default function ParallaxHero() {
     </div>
   );
 }
+
+export default React.memo(ParallaxHero);
