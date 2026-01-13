@@ -1,0 +1,38 @@
+{
+  "collection": "HustleCodeX Characters",
+  "version": "1.0.0",
+  "updated_at": "2026-01-11",
+  "characters": [
+    {
+      "id": "mentor_01",
+      "name": "The Mentor",
+      "role": "Guide",
+      "description": "A wise, weathered coder with cybernetic eye enhancements who guides new Hustlers.",
+      "files": {
+        "avatar": "mentor-avatar.jpg",
+        "full_body": "mentor-full.png"
+      },
+      "traits": ["Wisdom", "Coding", "Cybernetics"]
+    },
+    {
+      "id": "hustler_01",
+      "name": "The Novice",
+      "role": "Player",
+      "description": "The starting avatar for new players. A blank slate ready to be written.",
+      "files": {
+        "avatar": "novice-avatar.jpg"
+      },
+      "traits": ["Potential", "Resilience"]
+    },
+    {
+      "id": "glitch_cat",
+      "name": "Glitch Cat",
+      "role": "Companion",
+      "description": "A digital feline that appears when bugs are found in the code.",
+      "files": {
+        "avatar": "glitch-cat.jpg"
+      },
+      "traits": ["Chaos", "Luck"]
+    }
+  ]
+}
