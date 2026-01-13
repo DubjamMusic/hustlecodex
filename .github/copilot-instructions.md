@@ -30,10 +30,10 @@ Individuals in recovery who want to channel their energy into learning coding an
   - Deep Black: `#020202` (use `bg-deep-black`)
   - Prestige Blue: `#003366` (use `text-prestige-blue`)
   - Note: HustleCodeX theme colors (cyan, orange, purple) are currently defined but may need to be moved to the colors section for proper usage
-- **Fonts**:
-  - Cinzel (serif) for prestige/title elements
-  - Inter (sans-serif) for body text
-  - JetBrains Mono for code/mono elements
+- **Fonts** (defined in `tailwind.config.js`):
+  - Cinzel (serif) for prestige/title elements (use `font-cinzel`)
+  - Inter/system fonts (use `font-sans`)
+  - JetBrains Mono/Fira Code (use `font-mono`)
 
 ### Additional Libraries
 - **Framer Motion** for advanced animations
@@ -67,8 +67,9 @@ Individuals in recovery who want to channel their energy into learning coding an
 ### File Organization
 - **Components**: Place in `/components` directory with `.tsx` extension
 - **Pages**: Use Next.js `/pages` directory structure
-- **Utilities**: Create in `/src` or `/utils` directory
+- **API Routes**: Place in `/pages/api` directory
 - **Types**: Co-locate with components or in separate `.types.ts` files
+- **Global Styles**: Use `globals.css` in root directory
 
 ### Naming Conventions
 - **Components**: PascalCase (e.g., `GoldenGlobe.tsx`)
