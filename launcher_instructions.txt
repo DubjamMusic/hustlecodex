@@ -1,0 +1,2 @@
+Setup emulator shortcuts using Termux or Android intent.
+Link save file paths to launch options.
