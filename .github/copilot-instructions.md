@@ -120,8 +120,8 @@ Individuals in recovery who want to channel their energy into learning coding an
 ```
 hustlecodex/
 ├── .github/
-│   ├── copilot-instructions.md  # This file
-│   └── agents/                  # Custom agent configs
+│   ├── copilot-instructions.md  # This file - repository-wide Copilot guidance
+│   └── agents/                  # Custom agent configurations (specialized AI assistants)
 ├── components/                  # React components
 │   ├── CommandDock.tsx
 │   ├── GoldenGlobe.tsx
