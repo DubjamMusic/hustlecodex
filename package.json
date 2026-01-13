@@ -1,4 +1,42 @@
 {
+ hustlecodeX
+  "name": "hustlecodex-stack",
+
+  "name": "hustlecodex-v3",
+ main
+  "version": "1.0.0",
+  "scripts": 
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+  },
+  "dependencies": {
+  hustlecodeX
+    "next": "latest",
+    "react": "latest",
+    "react-dom": "latest"
+ hustlecodeX
+
+  },
+  "devDependencies": {
+    "tailwindcss": "^3.3.0",
+    "autoprefixer": "^10.4.14",
+    "postcss": "^8.4.21"
+
+
+    "next": "^16.1.1",
+    "react": "^19.2.3",
+    "react-dom": "^19.2.3"
+  },
+  "devDependencies": {
+    "@types/node": "^24.7.1",
+    "@types/react": "^19.2.2",
+    "autoprefixer": "^10.4.21",
+    "baseline-browser-mapping": "^2.9.14",
+    "postcss": "^8.4.49",
+    "tailwindcss": "^3.4.18",
+    "typescript": "^5.9.3"
+
   "name": "hustlecodex",
   "version": "1.0.0",
   "description": "From Struggle to Digital Empire - A gamified recovery platform",
