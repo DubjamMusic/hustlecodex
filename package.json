@@ -8,6 +8,9 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
+    "export": "next build && next export",
+    "type-check": "tsc --noEmit",
+    "analyze": "ANALYZE=true next build"
     "type-check": "tsc --noEmit"
   },
   "dependencies": {

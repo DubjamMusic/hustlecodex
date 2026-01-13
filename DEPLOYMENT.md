@@ -1,4 +1,8 @@
-# PRESTIGE CONSOLE | DEPLOYMENT MANIFEST
+# GOLDEN GLOBE | NEXT.JS DEPLOYMENT GUIDE
+
+## 🚀 QUICK DEPLOY (60 SECONDS)
+
+### Method 1: Vercel (Recommended - Zero Config)
 
 ## ⚡ QUICK START: Deploy to Vercel in 5 Minutes
 
@@ -95,6 +99,11 @@ If there are any placeholder variables (like `EXAMPLE_NAME`), delete them. Then 
 # Install Vercel CLI
 npm i -g vercel
 
+# Deploy from project root
+vercel
+
+# Or deploy to production directly
+vercel --prod
 # Login to Vercel
 vercel login
 
@@ -105,24 +114,74 @@ vercel --prod
 # Dashboard → Project → Settings → Environment Variables
 ```
 
-### OPTION B: Netlify (Alternative)
+**What happens automatically:**
+- ✅ Detects Next.js configuration
+- ✅ Installs dependencies
+- ✅ Runs production build
+- ✅ Deploys to global CDN
+- ✅ Generates live URL instantly
+- ✅ SSL certificate auto-provisioned
+
+### Method 2: GitHub Integration (Continuous Deployment)
+
+1. Push code to GitHub repository
+2. Visit [vercel.com/new](https://vercel.com/new)
+3. Import your GitHub repository
+4. Click "Deploy" (zero configuration needed)
+5. Every push to main branch auto-deploys
+
+### Method 3: Netlify Alternative
+
 ```bash
-# Drag & Drop: https://app.netlify.com/drop
-# Or CLI:
+# Install Netlify CLI
 npm i -g netlify-cli
-netlify deploy --prod --dir=.
+
+# Build and deploy
+npm run build
+netlify deploy --prod --dir=.next
 ```
 
-### OPTION C: GitHub Pages (Free Forever)
+## 📋 PRE-DEPLOYMENT CHECKLIST
+
+✅ **Dependencies Updated**: All packages patched for security vulnerabilities  
+✅ **Environment Variables**: `.env.example` provided for configuration  
+✅ **Production Config**: `next.config.js` optimized for performance  
+✅ **Security Headers**: `vercel.json` includes security best practices  
+✅ **SEO Ready**: Meta tags, Open Graph, and robots.txt configured  
+✅ **Error Handling**: Custom 404 page with prestige theme  
+✅ **TypeScript**: Full type safety enabled  
+✅ **Responsive Design**: Mobile-first with breakpoints
+
+## 🔧 ENVIRONMENT SETUP
+
+Copy `.env.example` to `.env.local` and configure:
+
 ```bash
-# Create repo, push files, enable Pages in settings
-git init
-git add .
-git commit -m "Golden Globe Console - Initial Deploy"
-gh repo create prestige-console --public --source=. --push
-# Enable Pages in repo settings → select main branch
+cp .env.example .env.local
 ```
 
+**Key Variables:**
+- `NEXT_PUBLIC_SITE_URL`: Your production domain
+- `NEXT_PUBLIC_GA_ID`: Google Analytics tracking (optional)
+- `NEXT_PUBLIC_GUMROAD_ID`: Payment integration (optional)
+
+## 🛠️ LOCAL DEVELOPMENT
+
+```bash
+# Install dependencies
+npm install
+
+# Run development server
+npm run dev
+
+# Open http://localhost:3000
+```
+
+**Development Features:**
+- ⚡ Fast Refresh enabled
+- 🔥 Hot Module Replacement
+- 📊 Built-in analytics ready
+- 🎨 Tailwind JIT compilation
 ## 🌐 MULTI-CHANNEL DISTRIBUTION PLAN
 
 ### HustleCodeX Ecosystem
@@ -194,7 +253,7 @@ Use these test cards from Stripe:
 - Any 3-digit CVC
 - Any ZIP code  
 
-## 🧪 LOCAL TESTING
+## 🏗️ BUILD & TEST
 
 ### Development Server Setup
 
@@ -253,6 +312,86 @@ npm start
 Create a `.env.local` file for local development (never commit to Git):
 
 ```bash
+# Type checking
+npm run type-check
+
+# Production build
+npm run build
+
+# Test production locally
+npm start
+
+# Static export (optional)
+npm run export
+```
+
+**Build Output:**
+- Optimized JavaScript bundles
+- CSS minification with Tailwind
+- Image optimization ready
+- Standalone mode for Docker deployment
+
+## 📈 PRODUCTION OPTIMIZATIONS
+
+### Included Out-of-the-Box:
+
+1. **Performance:**
+   - SWC compiler (faster than Babel)
+   - Automatic code splitting
+   - Image optimization pipeline
+   - Font optimization (Google Fonts)
+   - Compression enabled
+
+2. **Security:**
+   - `X-Content-Type-Options: nosniff`
+   - `X-Frame-Options: DENY`
+   - `X-XSS-Protection: 1; mode=block`
+   - `Referrer-Policy: strict-origin-when-cross-origin`
+   - Powered-by header removed
+
+3. **SEO:**
+   - Semantic HTML structure
+   - Meta descriptions per page
+   - Open Graph tags for social sharing
+   - Twitter Card integration
+   - Dynamic robots.txt
+
+4. **Caching:**
+   - Static assets: 1 year cache
+   - Fonts: Immutable cache
+   - API routes: Custom cache control
+
+## 🎯 POST-DEPLOYMENT TASKS
+
+### 1. Domain Configuration
+
+```bash
+# Add custom domain in Vercel dashboard
+vercel domains add prestige.hustlecodex.com
+
+# Or via CLI
+vercel alias set <deployment-url> prestige.hustlecodex.com
+```
+
+### 2. Analytics Integration (Optional)
+
+**Google Analytics:**
+```env
+NEXT_PUBLIC_GA_ID=G-XXXXXXXXXX
+```
+
+**Plausible (Privacy-friendly):**
+```env
+NEXT_PUBLIC_PLAUSIBLE_DOMAIN=prestige.hustlecodex.com
+```
+
+Add to `pages/_app.tsx`:
+```tsx
+import Script from 'next/script';
+
+// In component
+<Script src="https://plausible.io/js/script.js" data-domain={process.env.NEXT_PUBLIC_PLAUSIBLE_DOMAIN} />
+```
 # Stripe Configuration (Required for payments)
 STRIPE_SECRET_KEY=sk_test_YOUR_KEY_HERE
 STRIPE_PRICE_ID_GOLDEN_GLOBE=price_YOUR_PRICE_ID_HERE
@@ -337,7 +476,7 @@ STRIPE_PRICE_ID_SUPPORT_LEVEL_2=price_...
    - Configure Stripe webhook monitoring
    - Set up uptime monitoring (UptimeRobot, Pingdom)
 
-## 📈 MONETIZATION ACTIVATION
+### 3. Payment Integration
 
 ### Stripe Integration (Already Implemented)
 
