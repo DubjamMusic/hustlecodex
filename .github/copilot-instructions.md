@@ -18,20 +18,18 @@ Individuals in recovery who want to channel their energy into learning coding an
 ## Tech Stack
 
 ### Core Framework
-- **Next.js 15+** (App Router and Pages Router hybrid)
-- **React 19+** (with TypeScript)
-- **TypeScript 5.9+** (strict mode enabled)
+- **Next.js** (App Router and Pages Router hybrid)
+- **React 19** (with TypeScript)
+- **TypeScript 5.x** (strict mode enabled)
 - **Node.js 18+**
 
 ### Styling & UI
 - **Tailwind CSS 3.4+** for all styling (no inline styles)
-- **Custom color palette**:
+- **Custom color palette** (defined in `tailwind.config.js`):
   - Gold: `#d4af37` (use `text-gold`, `bg-gold`)
   - Deep Black: `#020202` (use `bg-deep-black`)
   - Prestige Blue: `#003366` (use `text-prestige-blue`)
-  - HustleCodeX Cyan: `#00D4AA` (use `hustlex-cyan`)
-  - HustleCodeX Orange: `#FF6B35` (use `hustlex-orange`)
-  - HustleCodeX Purple: `#7B68EE` (use `hustlex-purple`)
+  - Note: HustleCodeX theme colors (cyan, orange, purple) are currently defined but may need to be moved to the colors section for proper usage
 - **Fonts**:
   - Cinzel (serif) for prestige/title elements
   - Inter (sans-serif) for body text
