@@ -15,7 +15,8 @@
     "cap:sync": "cap sync",
     "cap:open:ios": "cap open ios",
     "cap:open:android": "cap open android",
-    "build:mobile": "next build && cap sync"
+    "build:mobile": "next build && cap sync",
+    "vercel-build": "next build"
   },
   "dependencies": {
     "@capacitor/app": "^6.0.0",
