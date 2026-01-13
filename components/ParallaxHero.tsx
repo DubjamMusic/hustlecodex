@@ -1,6 +1,5 @@
-import React from 'react';
+'use client';
 
-function ParallaxHero() {
 import { useEffect, useRef, useState } from 'react';
 
 export default function ParallaxHero() {
@@ -13,7 +12,6 @@ export default function ParallaxHero() {
   // Generate unique colors based on user data (procedural generation)
   useEffect(() => {
     const generateUserColors = () => {
-      // Simulate user data analysis (in production, this would use actual user metrics)
       const userMetrics = {
         activity: Math.random(),
         engagement: Math.random(),
@@ -21,7 +19,6 @@ export default function ParallaxHero() {
         timestamp: Date.now(),
       };
 
-      // Hash-like function to generate consistent colors from user data
       const hash = (str: string) => {
         let h = 0;
         for (let i = 0; i < str.length; i++) {
@@ -74,7 +71,6 @@ export default function ParallaxHero() {
     const particles: Particle[] = [];
     const particleCount = 100;
 
-    // Initialize particles
     for (let i = 0; i < particleCount; i++) {
       particles.push({
         x: Math.random() * canvas.width,
@@ -94,18 +90,15 @@ export default function ParallaxHero() {
       ctx.fillRect(0, 0, canvas.width, canvas.height);
 
       particles.forEach((particle, index) => {
-        // Update position
         particle.x += particle.vx;
         particle.y += particle.vy;
         particle.life++;
 
-        // Wrap around edges
         if (particle.x < 0) particle.x = canvas.width;
         if (particle.x > canvas.width) particle.x = 0;
         if (particle.y < 0) particle.y = canvas.height;
         if (particle.y > canvas.height) particle.y = 0;
 
-        // Reset particle if life exceeded
         if (particle.life > particle.maxLife) {
           particle.life = 0;
           particle.x = Math.random() * canvas.width;
@@ -113,7 +106,6 @@ export default function ParallaxHero() {
           particle.color = [userColors.primary, userColors.secondary, userColors.accent][Math.floor(Math.random() * 3)];
         }
 
-        // Draw particle with glow
         const alpha = 1 - (particle.life / particle.maxLife);
         ctx.shadowBlur = 15;
         ctx.shadowColor = particle.color;
@@ -122,7 +114,6 @@ export default function ParallaxHero() {
         ctx.arc(particle.x, particle.y, particle.size, 0, Math.PI * 2);
         ctx.fill();
 
-        // Draw connections
         particles.forEach((otherParticle, otherIndex) => {
           if (index !== otherIndex) {
             const dx = particle.x - otherParticle.x;
@@ -155,20 +146,17 @@ export default function ParallaxHero() {
   // Procedural sound generation
   const toggleSound = () => {
     if (!audioContextRef.current) {
-      audioContextRef.current = new (window.AudioContext || (window as any).webkitAudioContext)();
+      audioContextRef.current = new (window.AudioContext || (window as unknown as { webkitAudioContext: typeof AudioContext }).webkitAudioContext)();
     }
 
     if (isPlaying) {
-      // Stop sound
       oscillatorsRef.current.forEach(osc => osc.stop());
       oscillatorsRef.current = [];
       setIsPlaying(false);
     } else {
-      // Generate sound based on user colors
       const ctx = audioContextRef.current;
       const hue = parseInt(userColors.primary.match(/\d+/)?.[0] || '200');
       
-      // Create ambient soundscape with multiple oscillators
       const frequencies = [
         200 + (hue * 0.5),
         300 + (hue * 0.3),
@@ -195,7 +183,6 @@ export default function ParallaxHero() {
     }
   };
 
-  // Cleanup on unmount
   useEffect(() => {
     return () => {
       oscillatorsRef.current.forEach(osc => {
@@ -210,14 +197,12 @@ export default function ParallaxHero() {
 
   return (
     <div className="relative h-[50vh] bg-black overflow-hidden">
-      {/* Animated Canvas Background */}
       <canvas
         ref={canvasRef}
         className="absolute inset-0 w-full h-full"
         style={{ mixBlendMode: 'screen' }}
       />
 
-      {/* Gradient Overlay */}
       <div
         className="absolute inset-0"
         style={{
@@ -225,7 +210,6 @@ export default function ParallaxHero() {
         }}
       />
 
-      {/* Content */}
       <div className="relative z-10 h-full grid place-items-center">
         <div className="text-center space-y-6">
           <h1
@@ -257,7 +241,6 @@ export default function ParallaxHero() {
         </div>
       </div>
 
-      {/* Pulsing rings */}
       <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
         {[0, 1, 2].map((i) => (
           <div
@@ -276,5 +259,3 @@ export default function ParallaxHero() {
     </div>
   );
 }
-
-export default React.memo(ParallaxHero);

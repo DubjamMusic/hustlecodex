@@ -1,41 +1,27 @@
+const withPWA = require('@ducanh2912/next-pwa').default({
+  dest: 'public',
+  disable: process.env.NODE_ENV === 'development',
+  register: true,
+  skipWaiting: true,
+  cacheOnFrontEndNav: true,
+  aggressiveFrontEndNavCaching: true,
+  reloadOnOnline: true,
+  workboxOptions: {
+    disableDevLogs: true,
+  },
+});
+
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   reactStrictMode: true,
-  
-  // Image optimization (if images are added later)
+  output: 'export',
+  trailingSlash: true,
   images: {
-    domains: [],
-    formats: ['image/avif', 'image/webp'],
+    unoptimized: true,
+    domains: ['hustlecodex.com', 'localhost'],
   },
-  
-  // Performance optimizations
   compress: true,
-  
-  // Output configuration for deployment
-  output: 'standalone',
-  
-  // Disable powered by header for security
   poweredByHeader: false,
 };
 
-module.exports = nextConfig;
-  swcMinify: true,
-  images: {
-    domains: ['hustlecodex.com', 'localhost'],
-    formats: ['image/avif', 'image/webp'],
-  },
-  experimental: {
-    optimizeCss: true,
-  },
-  async redirects() {
-    return [
-      {
-        source: '/home',
-        destination: '/',
-        permanent: true,
-      },
-    ]
-  },
-}
-
-module.exports = nextConfig
+module.exports = withPWA(nextConfig);
