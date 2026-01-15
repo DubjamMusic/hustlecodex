@@ -6,9 +6,11 @@ Vercel-ready Next.js starter kit for community-driven recovery RPG.
  HustleCodex V3
 Reality Recovery Playing Game — built with Next.js and TailwindCSS
 main
-# HustleCodex V3 - Golden Globe Prestige Console
+# HustleCodeX V3 - Reality Recovery Platform
 
 Reality Recovery Playing Game — built with Next.js, TypeScript, and TailwindCSS
+
+> **From Struggle to Digital Empire** — A gamified recovery platform that transforms addiction energy into coding skills and entrepreneurship.
 
 ## ✨ Features
 
@@ -19,23 +21,38 @@ Reality Recovery Playing Game — built with Next.js, TypeScript, and TailwindCS
 - **Command Dock**: Glassmorphic control interface with live stats
 - **Responsive Design**: Optimized for desktop, tablet, and mobile
 
+### 🤖 Nexus Recovery (NEW)
+- **AI Twin Chat**: Personal AI guide for decision-making and recovery support
+- **Decision Simulator**: Visualize good path vs bad path before making choices
+- **Quest System**: Gamified daily tasks with XP rewards and level progression
+- **User Profiles**: Track recovery status, streaks, and achievements
+- **Community Features**: Resource mapping and peer support (coming soon)
+
+[📖 Full Nexus Recovery Setup Guide](./docs/NEXUS_RECOVERY_SETUP.md)
+
 ### 🚀 Technical Stack
-- **Framework**: Next.js 15 (App Router)
-- **Language**: TypeScript 5.9
-- **Styling**: Tailwind CSS 3.3
-- **Font**: Cinzel (Google Fonts)
-- **Animations**: CSS keyframes + React hooks
+- **Framework**: Next.js 15.5 (Hybrid Router)
+- **Language**: TypeScript 5.7
+- **Styling**: Tailwind CSS 3.4
+- **Backend**: Supabase (PostgreSQL + Auth)
+- **AI**: OpenAI GPT-3.5-turbo
+- **State**: Zustand + React Query
+- **Fonts**: Cinzel (prestige), Inter (general)
+- **Animations**: Framer Motion + CSS keyframes
 
 ### 🔒 Production Ready
 - ✅ Security headers configured
 - ✅ SEO optimized with meta tags
 - ✅ Performance optimized (SWC, code splitting)
-- ✅ Type-safe with TypeScript
-- ✅ Zero security vulnerabilities
+- ✅ Type-safe with TypeScript strict mode
+- ✅ Zero security vulnerabilities (Next.js 15.5.9)
 - ✅ Custom 404 error page
 - ✅ Responsive mobile design
+- ✅ PWA support with Capacitor
 
 ## 🚀 Quick Start
+
+### Standard Installation
 
 ```bash
 # Install dependencies
@@ -46,6 +63,33 @@ npm run dev
 
 # Open http://localhost:3000
 ```
+
+### Nexus Recovery Features
+
+To enable AI-powered recovery features:
+
+1. **Set up Supabase** (free tier):
+   - Create account at [supabase.com](https://supabase.com)
+   - Create new project
+   - Run database migrations from `supabase/migrations/`
+
+2. **Set up OpenAI** (requires API key):
+   - Create account at [platform.openai.com](https://platform.openai.com)
+   - Generate API key
+
+3. **Configure environment**:
+   ```bash
+   cp .env.example .env.local
+   # Add your Supabase and OpenAI keys
+   # Set NEXT_PUBLIC_ENABLE_NEXUS_RECOVERY=true
+   ```
+
+4. **Access Nexus Dashboard**:
+   ```
+   http://localhost:3000/nexus
+   ```
+
+**Full setup guide**: [docs/NEXUS_RECOVERY_SETUP.md](./docs/NEXUS_RECOVERY_SETUP.md)
 
 ## 📦 Build & Deploy
 
@@ -68,63 +112,123 @@ vercel --prod
 ```
 hustlecodex/
 ├── components/
-│   ├── CommandDock.tsx      # Control interface
-│   ├── GoldenGlobe.tsx      # Central orb with animations
-│   ├── PrestigeSidebar.tsx  # Sector hierarchy
-│   ├── SupportLevels.tsx    # Donation tiers
-│   └── GameplayCarousel.tsx # Game showcase
+│   ├── CommandDock.tsx           # Control interface
+│   ├── GoldenGlobe.tsx           # Central orb with animations
+│   ├── PrestigeSidebar.tsx       # Sector hierarchy
+│   ├── SupportLevels.tsx         # Donation tiers
+│   ├── GameplayCarousel.tsx      # Game showcase
+│   ├── TwinChat.tsx              # AI Twin chat interface (NEW)
+│   ├── DecisionSimulator.tsx     # Decision visualization (NEW)
+│   └── QuestList.tsx             # Quest system (NEW)
 ├── pages/
-│   ├── _app.tsx             # App wrapper
-│   ├── _document.tsx        # HTML document
-│   ├── index.tsx            # Home page
-│   ├── 404.tsx              # Error page
+│   ├── _app.tsx                  # App wrapper
+│   ├── _document.tsx             # HTML document
+│   ├── index.tsx                 # Home page
+│   ├── nexus.tsx                 # Nexus Recovery dashboard (NEW)
+│   ├── 404.tsx                   # Error page
 │   └── api/
-│       └── robots.ts        # SEO robots.txt
-├── globals.css              # Global styles + animations
-├── tailwind.config.js       # Tailwind configuration
-├── next.config.js           # Next.js configuration
-└── vercel.json              # Deployment config
-
+│       ├── robots.ts             # SEO robots.txt
+│       └── twin/                 # AI Twin API routes (NEW)
+│           ├── chat.ts           # Chat endpoint
+│           └── simulate.ts       # Decision simulation
+├── lib/
+│   ├── supabase.ts               # Supabase client & types (NEW)
+│   └── openai.ts                 # OpenAI utilities (NEW)
+├── supabase/
+│   └── migrations/               # Database schema (NEW)
+├── docs/
+│   └── NEXUS_RECOVERY_SETUP.md   # Setup guide (NEW)
+├── styles/
+│   └── globals.css               # Global styles + animations
+├── tailwind.config.js            # Tailwind configuration
+├── next.config.js                # Next.js configuration
+└── vercel.json                   # Deployment config
 ```
 
 ## 🎯 Key Components
 
-### PrestigeSidebar
+### Golden Globe Prestige Console
+
+#### PrestigeSidebar
 - Interactive sector cards with hover effects
 - Locked/unlocked state management
 - Price tag displays
 - Click handlers for sector selection
 
-### GoldenGlobe
+#### GoldenGlobe
 - Animated central orb (400px desktop, 250px mobile)
 - Real-time node count and latency display
 - Ambient data streak animations
 - Pulse effect system (15 synchronized streaks)
 - React refs for imperative control
 
-### CommandDock
+#### CommandDock
 - Glassmorphic design with backdrop blur
 - Dynamic stats message display
 - Pulse button with hover effects
 - Gold color scheme integration
 
+### Nexus Recovery Features
+
+#### TwinChat
+- AI-powered conversational interface
+- Message history with timestamps
+- Context-aware responses based on recovery status
+- Real-time streaming from OpenAI GPT-3.5-turbo
+- Glassmorphic design matching platform aesthetic
+
+#### DecisionSimulator
+- Input field for decision description
+- Good path vs bad path visualization
+- Color-coded outcomes (green/red)
+- Recovery-focused insights
+- Integrated with AI Twin intelligence
+
+#### QuestList
+- Daily and regular quest display
+- XP reward tracking
+- Completion state management
+- Badge system integration
+- Progress visualization
+
 ## 🔧 Configuration
 
 ### Environment Variables
-Copy `.env.example` to `.env.local`:
 
+#### Core Application
 ```bash
 NEXT_PUBLIC_SITE_URL=https://your-domain.com
-NEXT_PUBLIC_SITE_NAME="Golden Globe - Prestige Console"
-NEXT_PUBLIC_GA_ID=           # Optional: Google Analytics
-NEXT_PUBLIC_PLAUSIBLE_DOMAIN= # Optional: Plausible Analytics
+NEXT_PUBLIC_SITE_NAME="HustleCodeX - Reality Recovery Platform"
 ```
+
+#### Optional Analytics
+```bash
+NEXT_PUBLIC_GA_ID=           # Google Analytics
+NEXT_PUBLIC_PLAUSIBLE_DOMAIN= # Plausible Analytics
+```
+
+#### Nexus Recovery Features (NEW)
+```bash
+# Supabase
+NEXT_PUBLIC_SUPABASE_URL=https://xxxxx.supabase.co
+NEXT_PUBLIC_SUPABASE_ANON_KEY=your_anon_key
+SUPABASE_SERVICE_ROLE_KEY=your_service_role_key  # Server-only
+
+# OpenAI
+OPENAI_API_KEY=sk-xxxxx  # Server-only
+
+# Feature Flags
+NEXT_PUBLIC_ENABLE_NEXUS_RECOVERY=true
+NEXT_PUBLIC_ENABLE_PAYMENTS=false
+```
+
+**⚠️ Security**: Never commit `.env.local` to git. Server-only keys should never be exposed to the browser.
 
 ### Tailwind Theme
 Custom colors defined in `tailwind.config.js`:
-- **gold**: #d4af37
-- **deep-black**: #020202
-- **prestige-blue**: #003366
+- **gold**: #d4af37 (prestige elements)
+- **deep-black**: #020202 (backgrounds)
+- **prestige-blue**: #003366 (accents)
 
 Custom font family:
 - **cinzel**: Cinzel serif (Google Fonts)
@@ -189,180 +293,74 @@ See [DEPLOYMENT.md](./DEPLOYMENT.md) for detailed deployment guide.
 
 ## 📚 Documentation
 
-- [Next.js Docs](https://nextjs.org/docs)
-- [Tailwind CSS Docs](https://tailwindcss.com/docs)
+- [Next.js Documentation](https://nextjs.org/docs)
+- [Tailwind CSS Documentation](https://tailwindcss.com/docs)
 - [TypeScript Handbook](https://www.typescriptlang.org/docs/)
+- [Supabase Documentation](https://supabase.com/docs)
+- [OpenAI API Documentation](https://platform.openai.com/docs)
+- [Nexus Recovery Setup Guide](./docs/NEXUS_RECOVERY_SETUP.md)
 - [Deployment Guide](./DEPLOYMENT.md)
 
-## 🤝 Contributing
+## 💰 Business Model
 
-1. Fork the repository
-2. Create a feature branch (`git checkout -b feature/amazing-feature`)
-3. Commit your changes (`git commit -m 'Add amazing feature'`)
-4. Push to the branch (`git push origin feature/amazing-feature`)
-5. Open a Pull Request
+### Revenue Streams
+1. **Freemium SaaS**
+   - Free: Basic AI Twin, limited quests, community features
+   - Guardian ($9/mo): Unlimited AI conversations, advanced decision simulations
+   - Architect ($29/mo): Priority support, custom AI personality, analytics
 
-## 📄 License
+2. **B2B Licenses**
+   - Recovery centers: $500-5K/month for white-labeled instances
+   - Reentry programs: Custom pricing based on user count
+   - Co-branded solutions with outcome tracking
 
-This project is part of HustleCodex V3 - Reality Recovery Playing Game.
+3. **Marketplace** (10-15% commission)
+   - User-generated prompts and quests
+   - Recovery resources and tools
+   - Professional content from creators
 
-## 🎯 Roadmap
+4. **Grants & Partnerships**
+   - Recovery research grants ($50-500K/year)
+   - Government reentry program funding
+   - Foundation support for social impact
 
-- [ ] Payment gateway integration (Gumroad/Stripe)
-- [ ] Analytics integration (Plausible/GA)
-- [ ] User authentication system
-- [ ] Sector unlock functionality
-- [ ] Achievement system
-- [ ] Leaderboard integration
-- [ ] Web3 wallet connection
-- [ ] NFT integration for premium sectors
-
----
-
-**Built with ❤️ using Next.js and TypeScript**
-# HustleCodeX
-
-> **From Struggle to Digital Empire** — A gamified recovery platform that transforms addiction energy into coding skills and entrepreneurship.
-
-![Version](https://img.shields.io/badge/version-1.0.0--mvp-green)
-![License](https://img.shields.io/badge/license-MIT-blue)
-![Status](https://img.shields.io/badge/status-MVP-orange)
-
-## 🎮 Overview
-
-**HustleCodeX** is a reality-recovery experience that merges storytelling, gamified learning, and community co-creation. Players—dubbed "Hustlers"—embark on quests that mirror real-world challenges, learning to channel the energy of addiction into creative coding and entrepreneurship.
-
-Through engaging missions and narrative arcs grounded in recovery psychology, users witness characters transform setbacks into milestones. Our goal is to inspire and empower individuals by showing that the same determination once applied to harmful habits can be redirected toward building digital skills, businesses, and healthier communities.
-
-## ✨ Key Features
-
-- **🎯 Gamified Learning**: Interactive quests teaching real coding skills
-- **💪 Recovery Support**: Daily check-ins, milestone tracking, sponsor matching
-- **🤝 Community Voting**: Democratic development where users shape the platform
-- **🧠 AI Coaching**: Personalized guidance powered by Claude API
-- **🏆 Achievement System**: Badges, titles, and progression tracking
-- **🎨 Cyberpunk Aesthetic**: Green/orange/purple palette with recovery themes
-
-## 🏗️ Architecture
-
-### Tech Stack
-
-- **Frontend**: Next.js 15, React 19, TypeScript, Tailwind CSS
-- **Backend**: Node.js, Express, tRPC, GraphQL Federation
-- **Database**: PostgreSQL (Supabase), Redis, MongoDB Atlas
-- **AI/ML**: Claude API, OpenAI, Pinecone, LangChain
-- **Infrastructure**: Vercel, Railway, Cloudflare, Docker
-- **DevOps**: GitHub Actions, Terraform, Sentry, Grafana
-
-### System Layers
-
-1. **Client Layer**: Web App (Next.js), Mobile (React Native), PWA
-2. **API Gateway & Auth**: Kong/Express gateway, NextAuth.js + JWT
-3. **Microservices**: User, Game Engine, Recovery, Social, Content CMS
-4. **AI/ML Layer**: LLM Service, Recommendation Engine, Predictive Analytics
-5. **Data Layer**: PostgreSQL, Redis, MongoDB, S3/R2, Pinecone/Weaviate
-6. **Infrastructure**: Vercel, Railway/Render, Cloudflare, Monitoring Stack
-
-## 📁 Project Structure
-
-```
-hustlecodex/
-├── public/
-│   └── assets/
-│       └── characters/        # Character art and avatars
-├── src/
-│   ├── components/           # React components
-│   ├── pages/               # Next.js pages
-│   └── styles/              # CSS and styling
-├── docs/
-│   ├── architecture.md      # Technical architecture
-│   ├── business-plan.md     # Business strategy
-│   └── grant-applications/  # UK charity grant drafts
-├── config/                  # Configuration files
-└── README.md
-```
-
-## 🚀 Getting Started
-
-### Prerequisites
-
-- Node.js 18+
-- pnpm or npm
-- PostgreSQL (or Supabase account)
-- Redis instance
-
-### Installation
-
-```bash
-# Clone the repository
-git clone https://github.com/DubjamMusic/hustlecodex.git
-cd hustlecodex
-
-# Install dependencies
-pnpm install
-
-# Set up environment variables
-cp .env.example .env.local
-# Edit .env.local with your API keys
-
-# Run development server
-pnpm dev
-```
-
-Visit `http://localhost:3000` to see the app.
-
-## 🎯 Roadmap
-
-### MVP (Current)
-- ✅ Landing page with typewriter hero
-- ✅ Community voting system
-- ✅ Stretch goals visualization
-- ✅ Admin dashboard prototype
-- 🔄 User authentication
-- 🔄 Basic quest system
-
-### Phase 2
-- AI-powered coaching chatbot
-- Mobile app (React Native)
-- Real-time leaderboards
-- Sponsor matching algorithm
-
-### Phase 3
-- Blockchain achievements (NFTs)
-- Real-life code bootcamp
-- API marketplace
-- Multi-language support
-
-## 🤝 Contributing
-
-We welcome contributions from the community! Please read our [Contributing Guide](CONTRIBUTING.md) before submitting PRs.
-
-### Development Workflow
-
-1. Fork the repository
-2. Create a feature branch (`git checkout -b feature/amazing-feature`)
-3. Commit your changes (`git commit -m 'Add amazing feature'`)
-4. Push to the branch (`git push origin feature/amazing-feature`)
-5. Open a Pull Request
-
-## 📊 Business Model
-
-HustleCodeX operates on a freemium model with multiple revenue streams:
-
-- **Free Tier**: Basic quests, community access, daily check-ins
-- **Premium ($9.99/mo)**: Advanced quests, AI coaching, custom avatars
-- **Enterprise**: White-label solutions for recovery centers
-- **Marketplace**: User-generated content, themes, quest packs
+### Target Market
+- **Primary**: 20M+ individuals in recovery in the US
+- **Secondary**: 5M+ individuals in reentry programs
+- **Tertiary**: Recovery organizations and treatment centers
 
 ## 🏆 Competitive Advantage
 
-| Feature | HustleCodeX | Codecademy | Habitica | I Am Sober |
-|---------|-------------|------------|----------|------------|
-| Recovery Focus | ✅ | ❌ | ❌ | ✅ |
+| Feature | HustleCodeX | Codecademy | I Am Sober | BetterHelp |
+|---------|-------------|------------|------------|------------|
+| AI Decision Support | ✅ | ❌ | ❌ | ⚠️ |
 | Real Coding Skills | ✅ | ✅ | ❌ | ❌ |
-| Gamification | ✅ | ⚠️ | ✅ | ⚠️ |
-| AI Coaching | ✅ | ❌ | ❌ | ❌ |
-| Community Voting | ✅ | ❌ | ❌ | ❌ |
+| Recovery Focus | ✅ | ❌ | ✅ | ✅ |
+| Gamification | ✅ | ⚠️ | ⚠️ | ❌ |
+| Community Mapping | ✅ | ❌ | ⚠️ | ❌ |
+| B2B Solutions | ✅ | ✅ | ❌ | ✅ |
+
+## 🤝 Contributing
+
+We welcome contributions from developers, designers, recovery professionals, and community members!
+
+### Development Workflow
+1. Fork the repository
+2. Create a feature branch (`git checkout -b feature/amazing-feature`)
+3. Follow our coding standards (see `.github/copilot-instructions.md`)
+4. Write tests for new features
+5. Commit your changes (`git commit -m 'Add amazing feature'`)
+6. Push to the branch (`git push origin feature/amazing-feature`)
+7. Open a Pull Request
+
+### Areas for Contribution
+- 🐛 Bug fixes and issue resolution
+- ✨ New feature development
+- 📝 Documentation improvements
+- 🎨 UI/UX enhancements
+- 🧪 Test coverage expansion
+- 🌍 Internationalization
+- ♿ Accessibility improvements
 
 ## 📄 License
 
@@ -372,15 +370,62 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 - Recovery community for inspiration and feedback
 - Open source contributors
+- Supabase and OpenAI for enabling AI-powered recovery support
 - UK recovery charities for partnership opportunities
 
 ## 📞 Contact
 
 - **Website**: [hustlecodex.com](https://hustlecodex.com)
 - **Email**: hello@hustlecodex.com
-- **Twitter**: [@hustlecodex](https://twitter.com/hustlecodex)
-- **Discord**: [Join our community](https://discord.gg/hustlecodex)
+- **GitHub**: [github.com/DubjamMusic/hustlecodex](https://github.com/DubjamMusic/hustlecodex)
+- **Discord**: Join our community (coming soon)
+
+## 🎯 Roadmap
+
+### Phase 1: MVP (Current)
+- [x] Golden Globe Prestige Console
+- [x] AI Twin Chat with OpenAI GPT-3.5
+- [x] Decision Simulator (good path vs bad path)
+- [x] Quest System with XP rewards
+- [x] Supabase database schema
+- [x] TypeScript strict mode
+- [x] Security headers and best practices
+
+### Phase 2: Core Features (Q1 2026)
+- [ ] User authentication with Supabase Auth
+- [ ] Profile creation and recovery status tracking
+- [ ] Quest completion persistence
+- [ ] XP and rank progression system
+- [ ] Daily streak tracking
+- [ ] Community contribution mapping (Leaflet/OpenStreetMap)
+- [ ] Resource location pins
+
+### Phase 3: Enhanced Features (Q2 2026)
+- [ ] AI Twin memory and context persistence
+- [ ] Advanced decision simulation with multi-path outcomes
+- [ ] Badge and achievement system
+- [ ] Leaderboards
+- [ ] User-generated quests
+- [ ] Marketplace for recovery resources
+- [ ] Mobile PWA optimization
+
+### Phase 4: Growth (Q3-Q4 2026)
+- [ ] Payment gateway integration (Stripe/Gumroad)
+- [ ] B2B dashboard for recovery organizations
+- [ ] Advanced analytics and outcome tracking
+- [ ] Native mobile apps (Capacitor iOS/Android)
+- [ ] Sponsor/mentor matching system
+- [ ] Video content integration
+- [ ] Multi-language support
+
+### Phase 5: Scale (2027)
+- [ ] Web3/NFT achievements (optional)
+- [ ] API marketplace
+- [ ] White-label solutions for recovery centers
+- [ ] Research partnerships for outcome studies
+- [ ] Integration with telehealth platforms
+- [ ] Voice-first AI Twin interface
 
 ---
 
-**Built with ❤️ by the HustleCodeX team** | Transforming lives through code, one quest at a time.
+**Built with ❤️ for the recovery community** | Transforming lives through code, one quest at a time.
