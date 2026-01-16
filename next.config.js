@@ -14,8 +14,12 @@ const withPWA = require('@ducanh2912/next-pwa').default({
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   reactStrictMode: true,
-  output: 'export',
-  trailingSlash: true,
+  // Disable static export if Nexus Recovery is enabled (requires API routes)
+  // For static hosting, set NEXT_PUBLIC_ENABLE_NEXUS_RECOVERY=false
+  ...(process.env.NEXT_PUBLIC_ENABLE_NEXUS_RECOVERY !== 'true' && {
+    output: 'export',
+    trailingSlash: true,
+  }),
   images: {
     unoptimized: true,
     domains: ['hustlecodex.com', 'localhost'],
