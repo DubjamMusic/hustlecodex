@@ -12,7 +12,7 @@ The core innovation lies in the integration of three distinct fields:
 
 ### 3. Technical Approach
 *   **Platform:** A progressive web application (PWA) built on Next.js and React, ensuring accessibility across devices.
-*   **AI Engine:** Utilization of the Claude API for natural language understanding and generation, fine-tuned on recovery literature and cognitive behavioral therapy (CBT) principles.
+*   **AI Engine:** Utilisation of the Claude API for natural language understanding and generation, fine-tuned on recovery literature and cognitive behavioral therapy (CBT) principles.
 *   **Data Analytics:** Real-time tracking of user engagement, skill progression, and sentiment analysis to predict potential relapse risks (e.g., sudden drop in activity or negative sentiment shift).
 
 ### 4. Market Awareness
